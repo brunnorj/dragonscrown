@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clã Dragon's Crown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontes: Inter para o corpo e Cinzel Decorative para os títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* FUNDO PRETO SÓLIDO PARA MÁXIMO CONTRASTE */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+        }
+
+        /* FONTE E EFEITO 3D PARA TÍTULOS */
+        .title-fire {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #ffebcd; /* Cor principal do texto - um dourado pálido */
+            text-shadow: 
+                /* Contorno escuro para dar profundidade */
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                 /* Brilho de fogo */
+                 0 0 5px #ff4500,
+                 0 0 10px #ff4500,
+                 0 0 20px #ff4500,
+                 0 0 30px #ff8c00,
+                 0 0 40px #ff8c00;
+        }
+
+        /* Animações de Entrada */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+        /* Animação de fade-in para seções */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efeito de Fogo no banner */
+        #home { position: relative; overflow: hidden; }
+        .fire-particle {
+            position: absolute;
+            border-radius: 50%;
+            animation-name: fireRise;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            filter: blur(2px);
+            will-change: transform, opacity;
+        }
+        @keyframes fireRise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ANIMAÇÃO 3D MELHORADA */
+        .card-grid {
+            perspective: 1500px;
+        }
+        .team-card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+        .card-content {
+            transform: translateZ(20px);
+            transform-style: preserve-3d;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 0.5rem;
+            opacity: 0;
+            background: radial-gradient(
+                800px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+                rgba(79, 70, 229, 0.3),
+                transparent 40%
+            );
+            transition: opacity 0.5s ease-out;
+            will-change: opacity, background;
+        }
+        .team-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white hover:text-indigo-400 transition-colors" style="font-family: 'Cinzel Decorative', cursive;">CLÃ DRAGON'S CROWN</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#sobre" class="text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
+                <a href="#torneios" class="text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
+                <a href="#contato" class="text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-gray-900">
+            <a href="#sobre" class="block text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
+            <a href="#portfolio" class="block text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
+            <a href="#torneios" class="block text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
+            <a href="#contato" class="block text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-down title-fire" style="animation-delay: 0.2s;">Bem-vindo à família Dragon's Crown, onde a força se une à honra!</h1>
+            <p class="text-lg md:text-xl text-indigo-300 mb-8 fade-in-down" style="animation-delay: 0.4s;">Clash Royale | Guerra de Clã | Premiações | Troféus</p>
+            <a href="#portfolio" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 inline-block fade-in-up" style="animation-delay: 0.6s;">FAÇA PARTE DESTA FAMÍLIA / CLIQUE AQUI</a>
+        </section>
+
+        <section id="sobre" class="py-20 bg-gray-900 fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="text-3xl font-bold mb-6 title-fire">Como surgiu a família Dragon's Crown</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    No mundo competitivo de Clash Royale, três jogadores lendários – Bruno, Lucas e Samuka – trilharam caminhos diferentes, enfrentando batalhas épicas e desafios quase impossíveis. Cada um deles acumulou vitórias, derrotas e aprendizados únicos, forjando guerreiros experientes e estrategistas imbatíveis.
+                    Com o tempo, perceberam que juntos poderiam alcançar algo maior. No dia 30/05/2025, unindo forças, sonhos e determinação, nasceu o clã Dragon's Crowns. Um nome que representa poder, realeza e a chama que nunca se apaga.
+                    Desde aquele dia histórico, o clã não parou de crescer. Cada novo membro que se junta à família traz mais força, mais energia e mais glória para esse reino em expansão. Hoje, o Dragon's Crowns é mais que um clã: é uma lenda em construção.
+                </p>
+                <h3 class="text-2xl font-bold text-white mt-8 mb-4">Por que Dragons Crown?</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Dizem que em tempos antigos, existia uma coroa forjada nas chamas do último dragão. Ela não dava poder a quem a usasse — ela reconhecia quem já o tinha. Essa coroa foi perdida nas guerras, mas a lenda ficou.
+                    Dragons Crown nasceu como símbolo desse espírito: somos guerreiros que não precisam provar nada a ninguém — a força, a honra e a união já estão em nós. Cada batalha que vencemos é como recuperar um fragmento dessa coroa lendária.
+                    Aqui, cada membro é parte dessa lenda viva.
+                </p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-20 fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 title-fire">Equipes Dragon's Crown</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 card-grid">
+                    
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Dragon%27s+Crown" alt="Logo do Clã Dragon's Crown" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">🐉 Clã Dragon´s Crown</h3>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 10.000🏆</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span class="clan-tag">🏷️ Tag #G0GQJYCG</span>
+                                    <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
+                                </div>
+                                <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span>👑 Líder Samuka 📱 Tel:(41)99645-7507</span>
+                                    <a href="https://wa.me/5541996457507" target="_blank" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors" aria-label="Chat on WhatsApp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.29 4.723 4.833-1.276zm7.815-7.317c-.07-.127-.273-.215-.574-.382-.301-.165-1.762-.867-2.035-.967-.273-.1-.473-.15-.673.15-.2.3-.767.966-.94 1.164-.173.199-.347.223-.644.073-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.297.3-.497.099-.199.05-.371-.025-.52-.075-.149-.673-1.612-.923-2.207-.242-.579-.487-.5-.673-.506-.18-.008-.38-.008-.58-.008-.2 0-.525.074-.797.369-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Dragon%27s+Crown+2" alt="Logo do Clã Dragon's Crown 2" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">🐉 Clã Dragon´s Crown 2</h3>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 9.500🏆</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span class="clan-tag">🏷️ Tag #RPQ8PPRQ</span>
+                                    <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
+                                </div>
+                                <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span>👑 Líder Lucas 📱 Tel:(82)98167-8648</span>
+                                    <a href="https://wa.me/5582981678648" target="_blank" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors" aria-label="Chat on WhatsApp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.29 4.723 4.833-1.276zm7.815-7.317c-.07-.127-.273-.215-.574-.382-.301-.165-1.762-.867-2.035-.967-.273-.1-.473-.15-.673.15-.2.3-.767.966-.94 1.164-.173.199-.347.223-.644.073-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.297.3-.497.099-.199.05-.371-.025-.52-.075-.149-.673-1.612-.923-2.207-.242-.579-.487-.5-.673-.506-.18-.008-.38-.008-.58-.008-.2 0-.525.074-.797.369-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Dragon%27s+Crown+3" alt="Logo do Clã Dragon's Crown 3" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">🐉 Clã Dragon´s Crown 3</h3>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 8.500🏆</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span class="clan-tag">🏷️ Tag #RRUQQOGQ</span>
+                                    <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
+                                </div>
+                                <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span>👑 Líder Bruno 📱 Tel:(62)99669-6562</span>
+                                    <a href="https://wa.me/5562996696562" target="_blank" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors" aria-label="Chat on WhatsApp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.29 4.723 4.833-1.276zm7.815-7.317c-.07-.127-.273-.215-.574-.382-.301-.165-1.762-.867-2.035-.967-.273-.1-.473-.15-.673.15-.2.3-.767.966-.94 1.164-.173.199-.347.223-.644.073-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.297.3-.497.099-.199.05-.371-.025-.52-.075-.149-.673-1.612-.923-2.207-.242-.579-.487-.5-.673-.506-.18-.008-.38-.008-.58-.008-.2 0-.525.074-.797.369-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Dragon%27s+Crown+4" alt="Logo do Clã Dragon's Crown 4" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">🐉 Clã Dragon´s Crown 4</h3>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 7.000🏆</p>
+                                 <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span class="clan-tag">🏷️ Tag #G8OJ8UYU</span>
+                                    <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
+                                </div>
+                                <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span>👑 Líder João Pedro 📱 Tel:(83)98705-3410</span>
+                                    <a href="https://wa.me/5583987053410" target="_blank" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors" aria-label="Chat on WhatsApp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.29 4.723 4.833-1.276zm7.815-7.317c-.07-.127-.273-.215-.574-.382-.301-.165-1.762-.867-2.035-.967-.273-.1-.473-.15-.673.15-.2.3-.767.966-.94 1.164-.173.199-.347.223-.644.073-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.297.3-.497.099-.199.05-.371-.025-.52-.075-.149-.673-1.612-.923-2.207-.242-.579-.487-.5-.673-.506-.18-.008-.38-.008-.58-.008-.2 0-.525.074-.797.369-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Dragon%27s+Crown+5" alt="Logo do Clã Dragon's Crown 5" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">🐉 Clã Dragon´s Crown 5</h3>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 6.500🏆</p>
+                                 <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span class="clan-tag">🏷️ Tag #G8P9R988</span>
+                                    <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
+                                </div>
+                                <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
+                                <div class="flex items-center justify-between text-gray-400 mb-4">
+                                    <span>👑 Líder Lipe 📱 Tel:(61)99979-2956</span>
+                                    <a href="https://wa.me/5561999792956" target="_blank" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-400 transition-colors" aria-label="Chat on WhatsApp">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.29 4.723 4.833-1.276zm7.815-7.317c-.07-.127-.273-.215-.574-.382-.301-.165-1.762-.867-2.035-.967-.273-.1-.473-.15-.673.15-.2.3-.767.966-.94 1.164-.173.199-.347.223-.644.073-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.297.3-.497.099-.199.05-.371-.025-.52-.075-.149-.673-1.612-.923-2.207-.242-.579-.487-.5-.673-.506-.18-.008-.38-.008-.58-.008-.2 0-.525.074-.797.369-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg overflow-hidden group team-card">
+                        <div class="card-content">
+                            <img src="https://placehold.co/600x400/1e293b/93c5fd?text=Em+Breve" alt="Espaço reservado para um novo clã" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">EM BREVE</h3>
+                                <p class="text-gray-400 mb-4">&nbsp;</p>
+                                <p class="text-gray-400 mb-4">&nbsp;</p>
+                                <p class="text-gray-400 mb-4">&nbsp;</p>
+                                <p class="text-gray-400 mb-4">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO DE TORNEIOS -->
+        <section id="torneios" class="py-20 bg-gray-900 fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 title-fire">Torneios e Campeões</h2>
+                <div class="text-center mb-12">
+                    <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto">Fique por dentro dos nossos torneios internos! Aqui divulgamos os próximos campeonatos, as regras e, claro, celebramos nossos grandes campeões.</p>
+                </div>
+
+                <!-- Exemplo de Card de Torneio -->
+                <div class="bg-gray-800/80 rounded-lg p-6 mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">🏆 Torneio da Coroa de Fogo - Setembro</h3>
+                    <p class="text-gray-400 mb-2"><span class="font-bold">Inscrições:</span> 01/09 a 10/09</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Formato do Duelo:</span> À Definir</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Data e Horário:</span> À Definir</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Premiação:</span> À Definir</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Regras:</span> À Definir</p>
+                    
+                </div>
+
+                <!-- Galeria de Ganhadores -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-8">Nossos Últimos Campeões</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Ganhador 1 -->
+                        <div class="text-center">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400">
+                            <h4 class="text-xl font-bold text-white">Nome do Player</h4>
+                            <p class="text-yellow-400">Campeão de Setembro</p>
+                        </div>
+                        <!-- Ganhador 2 -->
+                        <div class="text-center">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+2" alt="Foto do Ganhador 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-400">
+                            <h4 class="text-xl font-bold text-white">Outro Player</h4>
+                            <p class="text-gray-400">Vice-Campeão de Setembro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-20 bg-gray-900 fade-in-section">
+            <div class="container mx-auto px-6 max-w-xl text-center">
+                <h2 class="text-3xl font-bold mb-6 title-fire">Entre em Contato</h2>
+                <p class="text-gray-400 mb-8">
+                    Gostou do que viu? Vamos conversar! Envie uma mensagem no WhatsApp para um dos líderes e venha fazer parte da nossa família.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500 flex justify-between items-center">
+            <small>&copy; 2025 Bruno. Todos os direitos reservados.</small>
+            <small>Acessos: <span id="visitor-count">0</span></small>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script para o menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            for (let link of mobileMenuLinks) {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+
+            // Script para animação de fade-in ao rolar a página
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Script para copiar a tag do clã
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const tagElement = e.target.closest('.flex').querySelector('.clan-tag');
+                    const tagText = tagElement.innerText.split('#')[1];
+                    navigator.clipboard.writeText(tagText).then(() => {
+                        const originalText = e.target.innerText;
+                        e.target.innerText = 'Copiado!';
+                        e.target.classList.add('bg-green-500', 'hover:bg-green-500');
+                        setTimeout(() => {
+                            e.target.innerText = originalText;
+                            e.target.classList.remove('bg-green-500', 'hover:bg-green-500');
+                        }, 2000);
+                    }).catch(err => console.error('Erro ao copiar a tag: ', err));
+                });
+            });
+
+            // Script para criar partículas de fogo no banner
+            const homeSection = document.getElementById('home');
+            const particleCount = 50;
+            const fireColors = ['#FF4500', '#FFA500', '#FF6347', '#FFD700'];
+
+            for (let i = 0; i < particleCount; i++) {
+                let particle = document.createElement('div');
+                particle.classList.add('fire-particle');
+                let size = Math.random() * 7 + 3;
+                let randomColor = fireColors[Math.floor(Math.random() * fireColors.length)];
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = randomColor;
+                particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px ${randomColor}`;
+                particle.style.bottom = `-${Math.random() * 20}%`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                particle.style.animationDelay = `${Math.random() * 4}s`;
+                homeSection.prepend(particle);
+            }
+
+            // Script para a animação 3D dos cards
+            const cards = document.querySelectorAll('.team-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const width = rect.width;
+                    const height = rect.height;
+                    const rotateX = ((y / height) - 0.5) * -10;
+                    const rotateY = ((x / width) - 0.5) * 10;
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    const glowX = (x / width) * 100;
+                    const glowY = (y / height) * 100;
+                    card.style.setProperty('--glow-x', `${glowX}%`);
+                    card.style.setProperty('--glow-y', `${glowY}%`);
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0) rotateY(0)';
+                });
+            });
+
+            // Script para o contador de visitas
+            const visitorCountElement = document.getElementById('visitor-count');
+            let count = localStorage.getItem('page_views');
+            if (count) {
+                count = parseInt(count, 10) + 1;
+            } else {
+                count = 1;
+            }
+            localStorage.setItem('page_views', count);
+            visitorCountElement.textContent = count;
+        });
+    </script>
+
+</body>
+</html>
