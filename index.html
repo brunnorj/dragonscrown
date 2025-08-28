@@ -113,6 +113,11 @@
         .team-card:hover::before {
             opacity: 1;
         }
+        
+        /* Estilos do Modal da Loja */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -125,6 +130,7 @@
                 <a href="#portfolio" class="text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
                 <a href="#torneios" class="text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
                 <a href="#contato" class="text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+                <button id="open-shop-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -135,6 +141,7 @@
             <a href="#portfolio" class="block text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
             <a href="#torneios" class="block text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
             <a href="#contato" class="block text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+            <button id="open-shop-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
         </div>
     </header>
 
@@ -147,7 +154,7 @@
 
         <section id="sobre" class="py-20 bg-gray-900 fade-in-section">
             <div class="container mx-auto px-6 text-center max-w-3xl">
-                <h2 class="text-3xl font-bold mb-6 title-fire">Como surgiu a família Dragon's Crown</h2>
+                <h2 class="text-3xl font-bold mb-6 title-fire">Como surgiu a família Dragon's Crown ?</h2>
                 <p class="text-gray-400 leading-relaxed">
                     No mundo competitivo de Clash Royale, três jogadores lendários – Bruno, Lucas e Samuka – trilharam caminhos diferentes, enfrentando batalhas épicas e desafios quase impossíveis. Cada um deles acumulou vitórias, derrotas e aprendizados únicos, forjando guerreiros experientes e estrategistas imbatíveis.
                     Com o tempo, perceberam que juntos poderiam alcançar algo maior. No dia 30/05/2025, unindo forças, sonhos e determinação, nasceu o clã Dragon's Crowns. Um nome que representa poder, realeza e a chama que nunca se apaga.
@@ -300,11 +307,17 @@
                 <div class="bg-gray-800/80 rounded-lg p-6 mb-8">
                     <h3 class="text-2xl font-bold text-white mb-4">🏆 Torneio da Coroa de Fogo - Setembro</h3>
                     <p class="text-gray-400 mb-2"><span class="font-bold">Inscrições:</span> 01/09 a 10/09</p>
-                    <p class="text-gray-400 mb-4"><span class="font-bold">Formato do Duelo:</span> À Definir</p>
-                    <p class="text-gray-400 mb-4"><span class="font-bold">Data e Horário:</span> À Definir</p>
-                    <p class="text-gray-400 mb-4"><span class="font-bold">Premiação:</span> À Definir</p>
-                    <p class="text-gray-400 mb-4"><span class="font-bold">Regras:</span> À Definir</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Formato do Duelo:</span> Modo 2 x 2 (Duplas)</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Data e Horário:</span> 20/09/2025 ás 19:30</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Premiação:</span> R$ 30,00</p>
+                    <p class="text-gray-400 mb-4"><span class="font-bold">Taxa de Inscrição:</span> GRÁTIS</p>
                     
+                    <!-- Botão de Inscrição Adicionado -->
+                    <div class="text-center mt-6">
+                        <a href="https://wa.me/5562996696562" target="_blank" class="bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105 inline-block">
+                            Inscreva-se aqui
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Galeria de Ganhadores -->
@@ -314,13 +327,13 @@
                         <!-- Ganhador 1 -->
                         <div class="text-center">
                             <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400">
-                            <h4 class="text-xl font-bold text-white">Nome do Player</h4>
+                            <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
                             <p class="text-yellow-400">Campeão de Setembro</p>
                         </div>
                         <!-- Ganhador 2 -->
                         <div class="text-center">
                             <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+2" alt="Foto do Ganhador 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-400">
-                            <h4 class="text-xl font-bold text-white">Outro Player</h4>
+                            <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
                             <p class="text-gray-400">Vice-Campeão de Setembro</p>
                         </div>
                     </div>
@@ -345,6 +358,278 @@
         </div>
     </footer>
 
+    <!-- Modal da Loja -->
+    <div id="shop-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-6xl max-h-[90vh] overflow-y-auto p-6 relative">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-center mb-12 title-fire">Loja do Clã</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 card-grid">
+                <!-- Produto 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://github.com/brunnorj/dragonscrown/blob/main/Quadros/1f49c478-151a-4bfd-8c54-2c472dbf5c7c.jpg?raw=true" alt="Quadro Bruxa" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Bruxa - 22cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://github.com/brunnorj/dragonscrown/blob/main/Quadros/5cbbbdff-8183-44e1-a56e-a6d96f1dfa10.jpg?raw=true" alt="Quadro Arqueira" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Arqueira - 22cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://github.com/brunnorj/dragonscrown/blob/main/Quadros/51c58deb-3410-4460-b066-37a472c730ec.jpg?raw=true" alt="Quadro Bombardeiro" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Bombardeiro - 22cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://github.com/brunnorj/dragonscrown/blob/main/Quadros/a79988ad-3656-465b-bf30-892d3c945424.jpg?raw=true" alt="Quadro Mago de Gelo" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Mago de Gelo - 22cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://github.com/brunnorj/dragonscrown/blob/main/Quadros/dc2cd03a-0fcb-4dcc-81ed-0ca14daaad08.jpg?raw=true" alt="Quadro Corredor" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Corredor - 22cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 6 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+6" alt="Foto do Produto 6" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 7 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+7" alt="Foto do Produto 7" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 8 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+8" alt="Foto do Produto 8" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 9 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+9" alt="Foto do Produto 9" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 10 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+10" alt="Foto do Produto 10" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 11 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+11" alt="Foto do Produto 11" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 12 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+12" alt="Foto do Produto 12" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Produto 13 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+13" alt="Foto do Produto 13" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 14 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+14" alt="Foto do Produto 14" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 15 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+15" alt="Foto do Produto 15" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2"></p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 16 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+16" alt="Foto do Produto 16" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 17 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+17" alt="Foto do Produto 17" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 18 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+18" alt="Foto do Produto 18" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 19 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+19" alt="Foto do Produto 19" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 20 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Produto+20" alt="Foto do Produto 20" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!!</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 0,00</p>
+                            <p class="text-gray-400 text-sm mb-3"></p>
+                            <p class="text-gray-500 text-xs mb-4"></p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Verifica se o script já foi executado para evitar duplicação
@@ -353,16 +638,46 @@
             }
             window.scriptHasRun = true;
 
+            // --- Script do Modal da Loja ---
+            const shopModal = document.getElementById('shop-modal');
+            const openShopButtonDesktop = document.getElementById('open-shop-button-desktop');
+            const openShopButtonMobile = document.getElementById('open-shop-button-mobile');
+            const closeModalButton = document.getElementById('close-modal-button');
+
+            function openModal() {
+                shopModal.classList.remove('hidden');
+                shopModal.classList.add('flex');
+            }
+
+            function closeModal() {
+                shopModal.classList.add('hidden');
+                shopModal.classList.remove('flex');
+            }
+
+            openShopButtonDesktop.addEventListener('click', openModal);
+            openShopButtonMobile.addEventListener('click', openModal);
+            closeModalButton.addEventListener('click', closeModal);
+            // Fecha o modal se clicar fora da área de conteúdo
+            shopModal.addEventListener('click', (event) => {
+                if (event.target === shopModal) {
+                    closeModal();
+                }
+            });
+
+
             // Script para o menu mobile
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a, button');
             for (let link of mobileMenuLinks) {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+                    // Se não for o botão da loja, esconde o menu
+                    if(link.id !== 'open-shop-button-mobile') {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
             }
 
