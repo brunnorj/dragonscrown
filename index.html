@@ -121,14 +121,6 @@
         .product-image {
             cursor: zoom-in;
         }
-
-        /* EFEITO DE BRILHO PARA CAMPEÕES */
-        .champion-glow-gold {
-            box-shadow: 0 0 15px rgba(250, 204, 21, 0.7), 0 0 25px rgba(251, 191, 36, 0.5);
-        }
-        .champion-glow-silver {
-            box-shadow: 0 0 15px rgba(209, 213, 219, 0.6), 0 0 25px rgba(156, 163, 175, 0.4);
-        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -140,9 +132,8 @@
                 <a href="#sobre" class="text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
                 <a href="#torneios" class="text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
-                <button id="open-champions-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Campeões Lendários</button>
-                <button id="open-shop-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
                 <a href="#contato" class="text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+                <button id="open-shop-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -152,9 +143,8 @@
             <a href="#sobre" class="block text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
             <a href="#portfolio" class="block text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
             <a href="#torneios" class="block text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
-            <button id="open-champions-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Campeões Lendários</button>
-            <button id="open-shop-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
             <a href="#contato" class="block text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+            <button id="open-shop-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
         </div>
     </header>
 
@@ -162,7 +152,7 @@
         <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-down title-fire" style="animation-delay: 0.2s;">Bem-vindo à família Dragon's Crown, onde a força se une à honra!</h1>
             <p class="text-lg md:text-xl text-indigo-300 mb-8 fade-in-down" style="animation-delay: 0.4s;">Clash Royale | Guerra de Clã | Premiações | Troféus</p>
-            <a href="#portfolio" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 inline-block fade-in-up" style="animation-delay: 0.6s;">FAÇA PARTE DESTA FAMÍlia / CLIQUE AQUI</a>
+            <a href="#portfolio" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 inline-block fade-in-up" style="animation-delay: 0.6s;">FAÇA PARTE DESTA FAMÍLIA / CLIQUE AQUI</a>
         </section>
 
         <section id="sobre" class="py-20 bg-gray-900 fade-in-section">
@@ -298,6 +288,7 @@
             </div>
         </section>
 
+        <!-- NOVA SEÇÃO DE TORNEIOS -->
         <section id="torneios" class="py-20 bg-gray-900 fade-in-section">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12 title-fire">Torneios e Campeões</h2>
@@ -305,6 +296,7 @@
                     <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto">Fique por dentro dos nossos torneios internos! Aqui divulgamos os próximos campeonatos, as regras e, claro, celebramos nossos grandes campeões.</p>
                 </div>
 
+                <!-- Exemplo de Card de Torneio -->
                 <div class="bg-gray-800/80 rounded-lg p-6 mb-8">
                     <h3 class="text-2xl font-bold text-white mb-4">🏆 Torneio da Coroa de Fogo - Setembro</h3>
                     <p class="text-gray-400 mb-2"><span class="font-bold">Inscrições:</span> 01/09 a 10/09</p>
@@ -314,6 +306,7 @@
                     <p class="text-gray-400 mb-4"><span class="font-bold">Taxa de Inscrição:</span> GRÁTIS</p>
                     <p class="text-gray-400 mb-4"><span class="font-bold">Grupo no WhatsApp do Torneio</span> Obrigatório.</p>
                     
+                    <!-- Botão de Inscrição Modificado -->
                     <div class="text-center mt-6">
                         <button id="open-tournament-modal-button" class="bg-green-500 text-white font-bold py-2 px-6 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105 inline-block">
                             Inscreva-se aqui
@@ -321,30 +314,34 @@
                     </div>
                 </div>
 
+                <!-- Galeria de Ganhadores -->
                 <div>
                     <h3 class="text-2xl font-bold text-white text-center mb-8">Nossos Últimos Campeões</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Ganhador 1 -->
                         <div class="text-center">
-                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400 champion-glow-gold">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400">
                             <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
                             <p class="text-yellow-400">Campeão de Setembro</p>
                         </div>
+                        <!-- Ganhador 1 -->
                         <div class="text-center">
-                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400 champion-glow-gold">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400">
                             <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
                             <p class="text-yellow-400">Campeão de Setembro</p>
                         </div>
+                        <!-- Ganhador 2 -->
                         <div class="text-center">
-                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+2" alt="Foto do Ganhador 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-400 champion-glow-silver">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+2" alt="Foto do Ganhador 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-400">
                             <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
                             <p class="text-gray-400">Vice-Campeão de Setembro</p>
                         </div>
-                    </div>
-                    <!-- BOTÃO PARA GALERIA (NOVO) -->
-                    <div class="text-center mt-12">
-                         <button id="open-champions-button-section" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 inline-block">
-                            Ver todos os Campeões Lendários
-                        </button>
+                        <!-- Ganhador 2 -->
+                        <div class="text-center">
+                            <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+2" alt="Foto do Ganhador 2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-400">
+                            <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
+                            <p class="text-gray-400">Vice-Campeão de Setembro</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -356,9 +353,6 @@
                 <p class="text-gray-400 mb-8">
                     Gostou do que viu? Vamos conversar! Envie uma mensagem no WhatsApp e venha fazer parte da nossa família.
                 </p>
-                <a href="https://wa.me/5562996696562" target="_blank" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105 inline-block">
-                    ENTRAR EM CONTATO VIA WHATSAPP
-                </a>
             </div>
         </section>
     </main>
@@ -366,7 +360,7 @@
     <footer class="bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500 flex justify-between items-center">
             <small>&copy; 2025 Bruno. Todos os direitos reservados.</small>
-            <small>Acessos: <span id="visitor-count">...</span></small>
+            <small>Acessos: <span id="visitor-count">0</span></small>
         </div>
     </footer>
 
@@ -378,30 +372,143 @@
             </button>
             <h2 class="text-3xl font-bold text-center mb-12 title-fire">Loja do Clã</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 card-grid">
-                <!-- Produtos aqui -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- Modal dos Campeões Lendários -->
-    <div id="champions-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
-        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-6xl max-h-[90vh] overflow-y-auto p-6 relative">
-            <button id="close-champions-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h2 class="text-3xl font-bold text-center mb-12 title-fire">Galeria dos Campeões Lendários</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 card-grid">
-                <!-- Campeão 1 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card text-center">
-                    <div class="card-content p-6">
-                        <img src="https://placehold.co/300x300/1a202c/ffbf00?text=Lenda" alt="Foto do Campeão" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400 champion-glow-gold">
-                        <h3 class="text-xl font-bold text-white mb-1">Nome do Campeão</h3>
-                        <p class="text-yellow-400 text-sm mb-2">Campeão do Torneio de Agosto</p>
-                        <p class="text-gray-500 text-xs">Agosto/2025</p>
+                <!-- Produto 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/main/Quadros/1f49c478-151a-4bfd-8c54-2c472dbf5c7c.jpg" alt="Quadro Bruxa" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Bruxa - 32x24cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Adicione mais campeões aqui -->
-
+                <!-- Produto 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/main/Quadros/5cbbbdff-8183-44e1-a56e-a6d96f1dfa10.jpg" alt="Quadro Arqueira" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Arqueira - 32x24cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/main/Quadros/51c58deb-3410-4460-b066-37a472c730ec.jpg" alt="Quadro Bombardeiro" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Bombardeiro - 32x24cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/main/Quadros/a79988ad-3656-465b-bf30-892d3c945424.jpg" alt="Quadro Mago de Gelo" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Mago de Gelo - 32x24cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/main/Quadros/dc2cd03a-0fcb-4dcc-81ed-0ca14daaad08.jpg" alt="Quadro Corredor" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Quadro C/Moldura Corredor - 32x24cm</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 35,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Impressão digital feita em papel fotográfico glossy a prova d'água.Moldura preta, fundo em eucatex. Já possui ganchos para fixar na parede.Altíssima resolução de imagem.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 6 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/refs/heads/main/Canecas/Caneca%201.jpg" alt="Foto do Produto 6" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Caneca Personalizada Clash Royale</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 23,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Caneca personalizada de alta qualidade, Presente perfeito para qualquer ocasião. Cerâmica de alta resistência, estampa durável, não desbota, Pode ir ao Micro Ondas. Personalizável com nome.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 7 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/refs/heads/main/Canecas/Caneca%202.jpg" alt="Foto do Produto 7" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Caneca Personalizada Clash Royale</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 23,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Caneca personalizada de alta qualidade, Presente perfeito para qualquer ocasião. Cerâmica de alta resistência, estampa durável, não desbota, Pode ir ao Micro Ondas. Personalizável com nome.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Produto 8 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/refs/heads/main/Canecas/caneca%203.jpg" alt="Foto do Produto 8" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Caneca Personalizada Clash Royale</h3>
+                            <p class="text-green-400 font-bold text-lg mb-2">R$ 23,00</p>
+                            <p class="text-gray-400 text-sm mb-3">Caneca personalizada de alta qualidade, Presente perfeito para qualquer ocasião. Cerâmica de alta resistência, estampa durável, não desbota, Pode ir ao Micro Ondas. Personalizável com nome.</p>
+                            <p class="text-gray-500 text-xs mb-4">Frete: A combinar</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Anuncie aqui -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Anuncie+Aqui" alt="Anuncie Aqui" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-gray-400 text-sm mb-3">Divulgue seu produto em nosso site.</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Anuncie aqui -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Anuncie+Aqui" alt="Anuncie Aqui" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-gray-400 text-sm mb-3">Divulgue seu produto em nosso site.</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Anuncie aqui -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group team-card">
+                    <div class="card-content">
+                        <img src="https://placehold.co/600x400/1a202c/93c5fd?text=Anuncie+Aqui" alt="Anuncie Aqui" class="w-full h-48 object-cover product-image">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anuncie Aqui!</h3>
+                            <p class="text-gray-400 text-sm mb-3">Divulgue seu produto em nosso site.</p>
+                            <a href="https://wa.me/5562996696562" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full text-center inline-block hover:bg-indigo-500 transition-colors">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -425,7 +532,55 @@
             <h2 class="text-2xl font-bold text-center mb-6 title-fire">Inscrição para o Torneio</h2>
             <p class="text-center text-gray-400 mb-6">Olá, tudo bem? Para participar do campeonato, preencha os dados do time abaixo.</p>
             <form id="tournament-form" class="space-y-4">
-                <!-- Campos do formulário -->
+                <div>
+                    <label for="time_name" class="block text-sm font-medium text-gray-300">Nome do Time</label>
+                    <input type="text" id="time_name" name="time_name" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="player1_name" class="block text-sm font-medium text-gray-300">Nome do jogador 1</label>
+                        <input type="text" id="player1_name" name="player1_name" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="player2_name" class="block text-sm font-medium text-gray-300">Nome do jogador 2</label>
+                        <input type="text" id="player2_name" name="player2_name" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="player1_tag" class="block text-sm font-medium text-gray-300">TAG jogador 1</label>
+                        <input type="text" id="player1_tag" name="player1_tag" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="player2_tag" class="block text-sm font-medium text-gray-300">TAG jogador 2</label>
+                        <input type="text" id="player2_tag" name="player2_tag" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="player1_zap" class="block text-sm font-medium text-gray-300">ZAP jogador 1</label>
+                        <input type="tel" id="player1_zap" name="player1_zap" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="player2_zap" class="block text-sm font-medium text-gray-300">ZAP jogador 2</label>
+                        <input type="tel" id="player2_zap" name="player2_zap" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="player1_nick" class="block text-sm font-medium text-gray-300">Nick jogador 1</label>
+                        <input type="text" id="player1_nick" name="player1_nick" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="player2_nick" class="block text-sm font-medium text-gray-300">Nick jogador 2</label>
+                        <input type="text" id="player2_nick" name="player2_nick" required class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105">
+                        Enviar Inscrição
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -433,246 +588,269 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (window.scriptHasRun) return;
+            // Verifica se o script já foi executado para evitar duplicação
+            if (window.scriptHasRun) {
+                return;
+            }
             window.scriptHasRun = true;
 
-            // --- Lógica de todos os Modais e Animações ---
-            // ... (O código anterior para os modais, animações, etc., continua aqui, sem a parte do contador de visitas antigo)
-            
             // --- Script do Modal da Loja ---
             const shopModal = document.getElementById('shop-modal');
             const openShopButtonDesktop = document.getElementById('open-shop-button-desktop');
             const openShopButtonMobile = document.getElementById('open-shop-button-mobile');
             const closeModalButton = document.getElementById('close-modal-button');
 
-            function openShopModal() {
+            function openModal() {
                 shopModal.classList.remove('hidden');
                 shopModal.classList.add('flex');
             }
-            function closeShopModal() {
+
+            function closeModal() {
                 shopModal.classList.add('hidden');
                 shopModal.classList.remove('flex');
             }
-            openShopButtonDesktop.addEventListener('click', openShopModal);
-            openShopButtonMobile.addEventListener('click', openShopModal);
-            closeModalButton.addEventListener('click', closeShopModal);
+
+            openShopButtonDesktop.addEventListener('click', openModal);
+            openShopButtonMobile.addEventListener('click', openModal);
+            closeModalButton.addEventListener('click', closeModal);
+            // Fecha o modal se clicar fora da área de conteúdo
             shopModal.addEventListener('click', (event) => {
-                if (event.target === shopModal) closeShopModal();
-            });
-
-            // --- Script do Modal dos Campeões Lendários ---
-            const championsModal = document.getElementById('champions-modal');
-            const openChampionsButtonDesktop = document.getElementById('open-champions-button-desktop');
-            const openChampionsButtonMobile = document.getElementById('open-champions-button-mobile');
-            const openChampionsButtonSection = document.getElementById('open-champions-button-section');
-            const closeChampionsModalButton = document.getElementById('close-champions-modal-button');
-
-            function openChampionsModal() {
-                championsModal.classList.remove('hidden');
-                championsModal.classList.add('flex');
-            }
-            function closeChampionsModal() {
-                championsModal.classList.add('hidden');
-                championsModal.classList.remove('flex');
-            }
-            openChampionsButtonDesktop.addEventListener('click', openChampionsModal);
-            openChampionsButtonMobile.addEventListener('click', openChampionsModal);
-            openChampionsButtonSection.addEventListener('click', openChampionsModal);
-            closeChampionsModalButton.addEventListener('click', closeChampionsModal);
-            championsModal.addEventListener('click', (event) => {
-                if (event.target === championsModal) closeChampionsModal();
+                if (event.target === shopModal) {
+                    closeModal();
+                }
             });
 
             // --- Script do Modal de Zoom da Imagem ---
             const imageZoomModal = document.getElementById('image-zoom-modal');
             const closeZoomModalButton = document.getElementById('close-zoom-modal-button');
             const zoomedImage = document.getElementById('zoomed-image');
-            const productImages = document.querySelectorAll('.product-image');
+            const productImages = document.querySelectorAll('#shop-modal .product-image');
 
             function openZoomModal(src) {
                 zoomedImage.src = src;
                 imageZoomModal.classList.remove('hidden');
                 imageZoomModal.classList.add('flex');
             }
+
             function closeZoomModal() {
                 imageZoomModal.classList.add('hidden');
                 imageZoomModal.classList.remove('flex');
+                zoomedImage.src = ""; // Limpa o src para performance
             }
+
             productImages.forEach(img => {
-                img.addEventListener('click', (e) => openZoomModal(e.target.src));
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Evita que o clique na imagem acione outros eventos
+                    openZoomModal(e.target.src);
+                });
             });
+
             closeZoomModalButton.addEventListener('click', closeZoomModal);
+
             imageZoomModal.addEventListener('click', (event) => {
-                if (event.target === imageZoomModal) closeZoomModal();
+                // Fecha o modal apenas se o clique for no fundo (o próprio modal)
+                if (event.target === imageZoomModal) {
+                    closeZoomModal();
+                }
             });
             
-            // --- Script do Modal de Inscrição de Torneio ---
+            // --- Script do Modal de Inscrição de Torneio (NOVO) ---
             const tournamentModal = document.getElementById('tournament-modal');
             const openTournamentModalButton = document.getElementById('open-tournament-modal-button');
             const closeTournamentModalButton = document.getElementById('close-tournament-modal-button');
-            
+            const tournamentForm = document.getElementById('tournament-form');
+
             function openTournamentModal() {
                 tournamentModal.classList.remove('hidden');
                 tournamentModal.classList.add('flex');
             }
+
             function closeTournamentModal() {
                 tournamentModal.classList.add('hidden');
                 tournamentModal.classList.remove('flex');
             }
-            if (openTournamentModalButton) openTournamentModalButton.addEventListener('click', openTournamentModal);
-            if (closeTournamentModalButton) closeTournamentModalButton.addEventListener('click', closeTournamentModal);
-            if (tournamentModal) tournamentModal.addEventListener('click', (event) => {
-                if (event.target === tournamentModal) closeTournamentModal();
-            });
-            
-            // Lógica do formulário de torneio...
-            const tournamentForm = document.getElementById('tournament-form');
-            if (tournamentForm) {
-                // ... (seu código de submit do formulário)
+
+            if (openTournamentModalButton) {
+                openTournamentModalButton.addEventListener('click', openTournamentModal);
+            }
+            if (closeTournamentModalButton) {
+                closeTournamentModalButton.addEventListener('click', closeTournamentModal);
             }
 
-            // Fechar todos os modais com a tecla 'Escape'
+            // Fecha o modal de torneio se clicar fora da área de conteúdo
+            if (tournamentModal) {
+                tournamentModal.addEventListener('click', (event) => {
+                    if (event.target === tournamentModal) {
+                        closeTournamentModal();
+                    }
+                });
+            }
+
+            // Lógica para enviar o formulário do torneio para o WhatsApp
+            if (tournamentForm) {
+                tournamentForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); // Impede o envio padrão do formulário
+
+                    // Coleta os dados do formulário
+                    const time_name = document.getElementById('time_name').value;
+                    const player1_name = document.getElementById('player1_name').value;
+                    const player2_name = document.getElementById('player2_name').value;
+                    const player1_tag = document.getElementById('player1_tag').value;
+                    const player2_tag = document.getElementById('player2_tag').value;
+                    const player1_zap = document.getElementById('player1_zap').value;
+                    const player2_zap = document.getElementById('player2_zap').value;
+                    const player1_nick = document.getElementById('player1_nick').value;
+                    const player2_nick = document.getElementById('player2_nick').value;
+                    
+                    // Monta a mensagem para o WhatsApp
+                    const message = `
+Olá, tudo bem?
+Gostaria de inscrever o seguinte time no campeonato:
+
+*Nome do Time:* ${time_name}
+
+*Nome do jogador 1:* ${player1_name}
+*Nome do jogador 2:* ${player2_name}
+*TAG jogador 1:* ${player1_tag}
+*TAG jogador 2:* ${player2_tag}
+*ZAP jogador 1:* ${player1_zap}
+*ZAP jogador 2:* ${player2_zap}
+*Nick jogador 1:* ${player1_nick}
+*Nick jogador 2:* ${player2_nick}
+                    `.trim().replace(/\n\s+\n/g, '\n\n'); // Limpa espaços e formata
+
+                    const whatsappNumber = '556296696562';
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                    
+                    // Abre o link do WhatsApp em uma nova aba
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Fecha o modal e limpa o formulário
+                    closeTournamentModal();
+                    tournamentForm.reset();
+                });
+            }
+
+
+            // Adiciona a funcionalidade de fechar com a tecla 'Escape'
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'Escape') {
-                    if (!shopModal.classList.contains('hidden')) closeShopModal();
-                    if (!championsModal.classList.contains('hidden')) closeChampionsModal();
-                    if (!imageZoomModal.classList.contains('hidden')) closeZoomModal();
-                    if (tournamentModal && !tournamentModal.classList.contains('hidden')) closeTournamentModal();
+                    if (!shopModal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                    if (!imageZoomModal.classList.contains('hidden')) {
+                        closeZoomModal();
+                    }
+                    // Adicionado para o novo modal de torneio
+                    if (tournamentModal && !tournamentModal.classList.contains('hidden')) {
+                        closeTournamentModal();
+                    }
                 }
             });
 
-            // Script do menu mobile
+
+            // Script para o menu mobile
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            mobileMenu.querySelectorAll('a, button').forEach(link => {
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a, button');
+            for (let link of mobileMenuLinks) {
                 link.addEventListener('click', () => {
-                     mobileMenu.classList.add('hidden');
+                    // Se não for o botão da loja, esconde o menu
+                    if(link.id !== 'open-shop-button-mobile') {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
-            });
+            }
 
-            // Script de animação de fade-in
+            // Script para animação de fade-in ao rolar a página
             const sections = document.querySelectorAll('.fade-in-section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
                 });
             }, { threshold: 0.1 });
-            sections.forEach(section => observer.observe(section));
+            sections.forEach(section => {
+                observer.observe(section);
+            });
 
             // Script para copiar a tag do clã
-            document.querySelectorAll('.copy-btn').forEach(button => {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
-                    const tagText = e.target.closest('.flex').querySelector('.clan-tag').innerText.split('#')[1];
+                    const tagElement = e.target.closest('.flex').querySelector('.clan-tag');
+                    const tagText = tagElement.innerText.split('#')[1];
                     navigator.clipboard.writeText(tagText).then(() => {
+                        const originalText = e.target.innerText;
                         e.target.innerText = 'Copiado!';
-                        e.target.classList.add('bg-green-500');
+                        e.target.classList.add('bg-green-500', 'hover:bg-green-500');
                         setTimeout(() => {
-                            e.target.innerText = 'Copiar';
-                            e.target.classList.remove('bg-green-500');
+                            e.target.innerText = originalText;
+                            e.target.classList.remove('bg-green-500', 'hover:bg-green-500');
                         }, 2000);
-                    });
+                    }).catch(err => console.error('Erro ao copiar a tag: ', err));
                 });
             });
 
-            // Script para partículas de fogo
+            // Script para criar partículas de fogo no banner
             const homeSection = document.getElementById('home');
             const particleCount = 50;
             const fireColors = ['#FF4500', '#FFA500', '#FF6347', '#FFD700'];
+
             for (let i = 0; i < particleCount; i++) {
                 let particle = document.createElement('div');
                 particle.classList.add('fire-particle');
                 let size = Math.random() * 7 + 3;
                 let randomColor = fireColors[Math.floor(Math.random() * fireColors.length)];
-                particle.style.cssText = `width:${size}px; height:${size}px; background-color:${randomColor}; box-shadow:0 0 ${Math.random()*10+5}px ${randomColor}; bottom:-${Math.random()*20}%; left:${Math.random()*100}%; animation-duration:${Math.random()*4+3}s; animation-delay:${Math.random()*4}s;`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = randomColor;
+                particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px ${randomColor}`;
+                particle.style.bottom = `-${Math.random() * 20}%`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                particle.style.animationDelay = `${Math.random() * 4}s`;
                 homeSection.prepend(particle);
             }
 
             // Script para a animação 3D dos cards
-            document.querySelectorAll('.team-card').forEach(card => {
+            const cards = document.querySelectorAll('.team-card');
+            cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    const { width, height } = rect;
+                    const width = rect.width;
+                    const height = rect.height;
                     const rotateX = ((y / height) - 0.5) * -10;
                     const rotateY = ((x / width) - 0.5) * 10;
                     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    card.style.setProperty('--glow-x', `${(x / width) * 100}%`);
-                    card.style.setProperty('--glow-y', `${(y / height) * 100}%`);
+                    const glowX = (x / width) * 100;
+                    const glowY = (y / height) * 100;
+                    card.style.setProperty('--glow-x', `${glowX}%`);
+                    card.style.setProperty('--glow-y', `${glowY}%`);
                 });
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'rotateX(0) rotateY(0)';
                 });
             });
+
+            // Script para o contador de visitas
+            const visitorCountElement = document.getElementById('visitor-count');
+            let count = localStorage.getItem('page_views');
+            if (count) {
+                count = parseInt(count, 10) + 1;
+            } else {
+                count = 1;
+            }
+            localStorage.setItem('page_views', count);
+            visitorCountElement.textContent = count;
         });
-    </script>
-    
-    <!-- SDKs do Firebase (NOVO) -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-      import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-
-      // =================================================================================
-      // SUA CONFIGURAÇÃO DO FIREBASE AQUI
-      // 1. Crie um projeto no site do Firebase (firebase.google.com)
-      // 2. Adicione um "Aplicativo da Web"
-      // 3. Copie o objeto de configuração (firebaseConfig) e cole aqui
-      // =================================================================================
-      const firebaseConfig = {
-        apiKey: "SUA_API_KEY",
-        authDomain: "SEU_AUTH_DOMAIN",
-        projectId: "SEU_PROJECT_ID",
-        storageBucket: "SEU_STORAGE_BUCKET",
-        messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-        appId: "SEU_APP_ID"
-      };
-
-      // Inicializa o Firebase e o Firestore
-      try {
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        
-        // Função para atualizar o contador de visitas
-        async function updateAndDisplayCount() {
-            const countElement = document.getElementById('visitor-count');
-            const counterRef = doc(db, "siteStats", "visits");
-
-            try {
-                // Incrementa o contador no banco de dados de forma atômica
-                await updateDoc(counterRef, { count: increment(1) });
-            } catch (error) {
-                // Se o documento não existir, ele será criado
-                if (error.code === 'not-found') {
-                    await setDoc(counterRef, { count: 1 });
-                } else {
-                    console.error("Erro ao incrementar contador:", error);
-                }
-            }
-
-            // Busca o valor mais recente e exibe na tela
-            try {
-                const docSnap = await getDoc(counterRef);
-                if (docSnap.exists()) {
-                    countElement.textContent = docSnap.data().count;
-                } else {
-                    countElement.textContent = 1;
-                }
-            } catch (error) {
-                console.error("Erro ao buscar contador:", error);
-                countElement.textContent = '...';
-            }
-        }
-
-        // Executa a função do contador
-        updateAndDisplayCount();
-
-      } catch (error) {
-        console.error("Erro ao inicializar o Firebase. Verifique sua configuração.", error);
-        document.getElementById('visitor-count').textContent = 'Erro';
-      }
     </script>
 
 </body>
