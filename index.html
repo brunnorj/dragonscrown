@@ -314,16 +314,19 @@
                     <p class="text-gray-400 mb-4"><span class="font-bold">Taxa de Inscrição:</span> GRÁTIS</p>
                     <p class="text-gray-400 mb-4"><span class="font-bold">Grupo no WhatsApp do Torneio</span> Obrigatório.</p>
                     
-                    <div class="text-center mt-6">
-                        <button class="bg-gray-600 text-gray-300 font-bold py-2 px-6 rounded-full cursor-not-allowed" disabled>
-                            Inscrições Encerradas
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                        <button id="open-bracket-modal-button" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-500 transition-transform transform hover:scale-105 inline-block w-full sm:w-auto">
+                            Ver Tabela
                         </button>
+                        <a href="#jogadores" id="open-player-list-modal-button" class="bg-purple-600 text-white font-bold py-2 px-6 rounded-full hover:bg-purple-500 transition-transform transform hover:scale-105 inline-block w-full sm:w-auto">
+                            Ver Jogadores Inscritos
+                        </a>
                     </div>
                 </div>
 
                 <div>
                     <h3 class="text-2xl font-bold text-white text-center mb-8">Nossos Últimos Campeões</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                         <div class="text-center">
                             <img src="https://placehold.co/300x300/1e293b/93c5fd?text=Player+1" alt="Foto do Ganhador 1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400 champion-glow-gold">
                             <h4 class="text-xl font-bold text-white">Nome do Jogador</h4>
@@ -355,7 +358,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <!-- Botão WhatsApp -->
                     <a href="https://wa.me/5562996696562" target="_blank" class="bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105 inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.003 2.011.564 3.935 1.587 5.668l-1.025 3.722 3.726-1.023zm-4.505 1.382l-.333.188c.525.92 1.24 1.738 2.102 2.422l.182.325.341.61.603.344 1.724.975h.004c.002 0 .002 0 .002 0l.004-.002c-.004 0-.004 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.004 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.0-0.002z"></path></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.003 2.011.564 3.935 1.587 5.668l-1.025 3.722 3.726-1.023zm-4.505 1.382l-.333.188c.525.92 1.24 1.738 2.102 2.422l.182.325.341.61.603.344 1.724.975h.004c.002 0 .002 0 .002 0l.004-.002c-.004 0-.004 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.004 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.0-0.002z"></path></svg>
                         <span>WhatsApp</span>
                     </a>
                     <!-- Botão Instagram -->
@@ -519,8 +522,6 @@
                         <p class="text-gray-500 text-xs">Agosto/2025</p>
                     </div>
                 </div>
-                <!-- Adicione mais campeões aqui -->
-
             </div>
         </div>
     </div>
@@ -535,16 +536,39 @@
         </div>
     </div>
 
-    <!-- Modal de Inscrição do Torneio -->
-    <div id="tournament-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
-        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
-            <button id="close-tournament-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+    <!-- Modal da Tabela do Torneio -->
+    <div id="bracket-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 relative">
+            <button id="close-bracket-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <h2 class="text-2xl font-bold text-center mb-6 title-fire">Inscrição para o Torneio</h2>
-            <div class="text-center py-8">
-                <h3 class="text-2xl font-bold text-yellow-400 mb-4">Inscrições Encerradas!</h3>
-                <p class="text-gray-400">Agradecemos o interesse. Fique de olho para os próximos torneios!</p>
+            <h2 class="text-3xl font-bold text-center mb-6 title-fire">Tabela do Campeonato</h2>
+            <div class="flex justify-center">
+                <img src="https://placehold.co/800x600/1e293b/93c5fd?text=Tabela+do+Torneio" alt="Tabela do Campeonato" class="rounded-lg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal da Lista de Jogadores -->
+    <div id="player-list-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col p-6 relative">
+            <button id="close-player-list-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-center mb-6 title-fire">Jogadores Inscritos</h2>
+            <div class="overflow-auto">
+                <table class="min-w-full bg-gray-800 text-left">
+                    <thead class="sticky top-0 bg-gray-900">
+                        <tr>
+                            <th class="p-3 text-sm font-semibold tracking-wide text-left text-gray-300">Nome</th>
+                            <th class="p-3 text-sm font-semibold tracking-wide text-left text-gray-300">TAG</th>
+                            <th class="p-3 text-sm font-semibold tracking-wide text-left text-gray-300">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="player-list-table-body" class="divide-y divide-gray-700">
+                        <!-- Linhas da tabela serão inseridas aqui pelo JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -554,6 +578,43 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (window.scriptHasRun) return;
             window.scriptHasRun = true;
+
+            // --- DADOS DOS JOGADORES (Substitua pelos dados do seu Excel) ---
+            const playerData = [
+                { name: 'Blue', tag: '#GGLRCVCYQ', team: 'Whick' },
+                { name: '07KRZIM', tag: '#V92QLLQ9Y', team: 'Whick' },
+                { name: 'Emerson❤️[BSB]', tag: '#VLYUL02YC', team: 'Moggados FC' },
+                { name: 'Vini✨MK BAIT', tag: '#2GCLQC22U', team: 'Moggados FC' },
+                { name: 'menowt', tag: '#UUUPCVRVP', team: 'Vistão' },
+                { name: 'robacena33', tag: '#VLU8PLJ8C', team: 'Vistão' },
+                { name: 'Lucas鉄CR™', tag: '#80QUG9VY2', team: 'Coroa dos Dragões' },
+                { name: '⚡ᴊᴘᴢɪɴ.ᴄʀ™', tag: '#2UVJ0VGJU', team: 'Coroa dos Dragões' },
+                { name: '♣Emanuel CLASH★', tag: '#QCPVGVUPC', team: 'Miguelitos' },
+                { name: 'filho d botelho', tag: '#2PL2CGP9Y', team: 'Miguelitos' },
+                { name: '『CRB』Limaoᵖʳᵒ', tag: '#80RJGVU89', team: 'Donkey e o Kong' },
+                { name: 'Deley', tag: '#V2GQ0ULYC', team: 'Donkey e o Kong' },
+                { name: 'NOT', tag: '#2QPLJ88VU', team: 'Caveiras' },
+                { name: 'Hanok™', tag: '#2GY9P8PGU', team: 'Caveiras' },
+                { name: 'vitin_7', tag: '#PQR678', team: 'Sincronia' },
+                { name: 'Ice wizard', tag: '#UQ2RVQC9C', team: 'Sincronia' },
+                { name: 'VERY NOBRE', tag: '#Q8GR90G0Y', team: 'Equipe cão' },
+                { name: 'EL NOBRE', tag: '#VQ9R0922C', team: 'Equipe cão' },
+                { name: 'iDesty✨️瑪麗亞', tag: '#RCLR9QC9', team: 'Fatality' },
+                { name: 'Regnar', tag: '#LJ0JC8RQ0', team: 'Fatality' },
+                { name: 'Samuka✨桑迪', tag: '#8U2UVG0VQ', team: 'Fênix Aliança' },
+                { name: 'Sandynhaa_', tag: '#UULC9GJQU', team: 'Fênix Aliança' },
+                { name: 'ᴅᴏғғʏㅤₒₚₚₛ', tag: '#UJLLGYGJ', team: 'Caçadores de sombras' },
+                { name: 'Índia', tag: '#889QCPC0', team: 'Caçadores de sombras' },
+                { name: 'The Demon', tag: '#2J8CVGPU', team: 'Dragon & Slayers' },
+                { name: 'LGR ⚜️ Mari ❤️', tag: '#QUQ08V29U', team: 'Dragon & Slayers' },
+                { name: 'Vitu.xit✨猥亵者', tag: '#C90QLC2GL', team: 'The Dragons' },
+                { name: '⭐BRUNNO™️⭐', tag: '#PVJRQYC8', team: 'The Dragons' },
+                { name: '⭐⭐⭐FARAÓ⭐⭐⭐', tag: '#982V9LCGY', team: 'RMR' },
+                { name: '☆Monique☆', tag: '#8QRV2U2J2', team: 'RMR' },
+                { name: 'Djunior', tag: '#Y2ULLYQV', team: 'DJ Suzy' },
+                { name: 'Lady Suzy', tag: '#V8VQ2QJ2G', team: 'DJ Suzy' },
+                // Adicione mais jogadores aqui no mesmo formato
+            ];
             
             // --- Script do Modal da Loja ---
             const shopModal = document.getElementById('shop-modal');
@@ -561,20 +622,12 @@
             const openShopButtonMobile = document.getElementById('open-shop-button-mobile');
             const closeModalButton = document.getElementById('close-modal-button');
 
-            function openShopModal() {
-                shopModal.classList.remove('hidden');
-                shopModal.classList.add('flex');
-            }
-            function closeShopModal() {
-                shopModal.classList.add('hidden');
-                shopModal.classList.remove('flex');
-            }
+            function openShopModal() { shopModal.classList.remove('hidden'); shopModal.classList.add('flex'); }
+            function closeShopModal() { shopModal.classList.add('hidden'); shopModal.classList.remove('flex'); }
             openShopButtonDesktop.addEventListener('click', openShopModal);
             openShopButtonMobile.addEventListener('click', openShopModal);
             closeModalButton.addEventListener('click', closeShopModal);
-            shopModal.addEventListener('click', (event) => {
-                if (event.target === shopModal) closeShopModal();
-            });
+            shopModal.addEventListener('click', (e) => { if (e.target === shopModal) closeShopModal(); });
 
             // --- Script do Modal dos Campeões Lendários ---
             const championsModal = document.getElementById('champions-modal');
@@ -583,21 +636,13 @@
             const openChampionsButtonSection = document.getElementById('open-champions-button-section');
             const closeChampionsModalButton = document.getElementById('close-champions-modal-button');
 
-            function openChampionsModal() {
-                championsModal.classList.remove('hidden');
-                championsModal.classList.add('flex');
-            }
-            function closeChampionsModal() {
-                championsModal.classList.add('hidden');
-                championsModal.classList.remove('flex');
-            }
+            function openChampionsModal() { championsModal.classList.remove('hidden'); championsModal.classList.add('flex'); }
+            function closeChampionsModal() { championsModal.classList.add('hidden'); championsModal.classList.remove('flex'); }
             openChampionsButtonDesktop.addEventListener('click', openChampionsModal);
             openChampionsButtonMobile.addEventListener('click', openChampionsModal);
             openChampionsButtonSection.addEventListener('click', openChampionsModal);
             closeChampionsModalButton.addEventListener('click', closeChampionsModal);
-            championsModal.addEventListener('click', (event) => {
-                if (event.target === championsModal) closeChampionsModal();
-            });
+            championsModal.addEventListener('click', (e) => { if (e.target === championsModal) closeChampionsModal(); });
 
             // --- Script do Modal de Zoom da Imagem ---
             const imageZoomModal = document.getElementById('image-zoom-modal');
@@ -605,42 +650,67 @@
             const zoomedImage = document.getElementById('zoomed-image');
             const productImages = document.querySelectorAll('.product-image');
 
-            function openZoomModal(src) {
-                zoomedImage.src = src;
-                imageZoomModal.classList.remove('hidden');
-                imageZoomModal.classList.add('flex');
-            }
-            function closeZoomModal() {
-                imageZoomModal.classList.add('hidden');
-                imageZoomModal.classList.remove('flex');
-            }
-            productImages.forEach(img => {
-                img.addEventListener('click', (e) => openZoomModal(e.target.src));
-            });
+            function openZoomModal(src) { zoomedImage.src = src; imageZoomModal.classList.remove('hidden'); imageZoomModal.classList.add('flex'); }
+            function closeZoomModal() { imageZoomModal.classList.add('hidden'); imageZoomModal.classList.remove('flex'); }
+            productImages.forEach(img => img.addEventListener('click', (e) => openZoomModal(e.target.src)));
             closeZoomModalButton.addEventListener('click', closeZoomModal);
-            imageZoomModal.addEventListener('click', (event) => {
-                if (event.target === imageZoomModal) closeZoomModal();
-            });
-            
-            // --- Script do Modal de Inscrição de Torneio ---
-            const tournamentModal = document.getElementById('tournament-modal');
-            const openTournamentModalButton = document.getElementById('open-tournament-modal-button');
-            const closeTournamentModalButton = document.getElementById('close-tournament-modal-button');
-            
-            function openTournamentModal() {
-                tournamentModal.classList.remove('hidden');
-                tournamentModal.classList.add('flex');
+            imageZoomModal.addEventListener('click', (e) => { if (e.target === imageZoomModal) closeZoomModal(); });
+
+            // --- Script do Modal da Tabela ---
+            const bracketModal = document.getElementById('bracket-modal');
+            const openBracketModalButton = document.getElementById('open-bracket-modal-button');
+            const closeBracketModalButton = document.getElementById('close-bracket-modal-button');
+
+            function openBracketModal() { bracketModal.classList.remove('hidden'); bracketModal.classList.add('flex'); }
+            function closeBracketModal() { bracketModal.classList.add('hidden'); bracketModal.classList.remove('flex'); }
+            openBracketModalButton.addEventListener('click', openBracketModal);
+            closeBracketModalButton.addEventListener('click', closeBracketModal);
+            bracketModal.addEventListener('click', (e) => { if (e.target === bracketModal) closeBracketModal(); });
+
+            // --- Script do Modal da Lista de Jogadores ---
+            const playerListModal = document.getElementById('player-list-modal');
+            const closePlayerListModalButton = document.getElementById('close-player-list-modal-button');
+            const playerListTableBody = document.getElementById('player-list-table-body');
+
+            function populatePlayerTable() {
+                playerListTableBody.innerHTML = ''; // Limpa a tabela antes de preencher
+                playerData.forEach(player => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="p-3 text-sm text-gray-300 whitespace-nowrap">${player.name}</td>
+                        <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-mono">${player.tag}</td>
+                        <td class="p-3 text-sm text-gray-300 whitespace-nowrap">${player.team}</td>
+                    `;
+                    playerListTableBody.appendChild(row);
+                });
             }
-            function closeTournamentModal() {
-                tournamentModal.classList.add('hidden');
-                tournamentModal.classList.remove('flex');
+
+            function openPlayerListModal() { 
+                populatePlayerTable();
+                playerListModal.classList.remove('hidden'); 
+                playerListModal.classList.add('flex'); 
             }
-            // Ação do botão foi desativada no HTML, mas mantemos a lógica caso seja reativada
-            if (openTournamentModalButton) openTournamentModalButton.addEventListener('click', openTournamentModal);
-            if (closeTournamentModalButton) closeTournamentModalButton.addEventListener('click', closeTournamentModal);
-            if (tournamentModal) tournamentModal.addEventListener('click', (event) => {
-                if (event.target === tournamentModal) closeTournamentModal();
-            });
+            function closePlayerListModal() { 
+                playerListModal.classList.add('hidden'); 
+                playerListModal.classList.remove('flex'); 
+                if (window.location.hash === '#jogadores') {
+                    history.pushState("", document.title, window.location.pathname + window.location.search);
+                }
+            }
+            closePlayerListModalButton.addEventListener('click', closePlayerListModal);
+            playerListModal.addEventListener('click', (e) => { if (e.target === playerListModal) closePlayerListModal(); });
+            
+            // Função para lidar com o hash da URL
+            function handleHashChange() {
+                if (window.location.hash === '#jogadores') {
+                    openPlayerListModal();
+                } else {
+                    closePlayerListModal();
+                }
+            }
+            // Verifica o hash quando a página carrega e quando ele muda
+            window.addEventListener('hashchange', handleHashChange);
+            handleHashChange(); // Executa na primeira carga
 
             // Fechar todos os modais com a tecla 'Escape'
             document.addEventListener('keydown', (event) => {
@@ -648,47 +718,29 @@
                     if (!shopModal.classList.contains('hidden')) closeShopModal();
                     if (!championsModal.classList.contains('hidden')) closeChampionsModal();
                     if (!imageZoomModal.classList.contains('hidden')) closeZoomModal();
-                    if (tournamentModal && !tournamentModal.classList.contains('hidden')) closeTournamentModal();
+                    if (!bracketModal.classList.contains('hidden')) closeBracketModal();
+                    if (!playerListModal.classList.contains('hidden')) closePlayerListModal();
                 }
             });
 
-            // Script do menu mobile
+            // Script do menu mobile, fade-in, copiar tag, etc.
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            mobileMenu.querySelectorAll('a, button').forEach(link => {
-                link.addEventListener('click', () => {
-                     mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // Script de animação de fade-in
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileMenu.querySelectorAll('a, button').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
             const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
-                });
-            }, { threshold: 0.1 });
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); }); }, { threshold: 0.1 });
             sections.forEach(section => observer.observe(section));
-
-            // Script para copiar a tag do clã
             document.querySelectorAll('.copy-btn').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const tagText = e.target.closest('.flex').querySelector('.clan-tag').innerText.split('#')[1];
                     navigator.clipboard.writeText(tagText).then(() => {
                         e.target.innerText = 'Copiado!';
                         e.target.classList.add('bg-green-500');
-                        setTimeout(() => {
-                            e.target.innerText = 'Copiar';
-                            e.target.classList.remove('bg-green-500');
-                        }, 2000);
+                        setTimeout(() => { e.target.innerText = 'Copiar'; e.target.classList.remove('bg-green-500'); }, 2000);
                     });
                 });
             });
-
-            // Script para partículas de fogo
             const homeSection = document.getElementById('home');
             const particleCount = 50;
             const fireColors = ['#FF4500', '#FFA500', '#FF6347', '#FFD700'];
@@ -700,8 +752,6 @@
                 particle.style.cssText = `width:${size}px; height:${size}px; background-color:${randomColor}; box-shadow:0 0 ${Math.random()*10+5}px ${randomColor}; bottom:-${Math.random()*20}%; left:${Math.random()*100}%; animation-duration:${Math.random()*4+3}s; animation-delay:${Math.random()*4}s;`;
                 homeSection.prepend(particle);
             }
-
-            // Script para a animação 3D dos cards
             document.querySelectorAll('.team-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
@@ -714,19 +764,11 @@
                     card.style.setProperty('--glow-x', `${(x / width) * 100}%`);
                     card.style.setProperty('--glow-y', `${(y / height) * 100}%`);
                 });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'rotateX(0) rotateY(0)';
-                });
+                card.addEventListener('mouseleave', () => { card.style.transform = 'rotateX(0) rotateY(0)'; });
             });
-            
-            // Script para o contador de visitas (localStorage)
             const visitorCountElement = document.getElementById('visitor-count');
             let count = localStorage.getItem('page_views');
-            if (count) {
-                count = parseInt(count, 10) + 1;
-            } else {
-                count = 1;
-            }
+            if (count) { count = parseInt(count, 10) + 1; } else { count = 1; }
             localStorage.setItem('page_views', count);
             visitorCountElement.textContent = count;
         });
