@@ -149,7 +149,7 @@
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="#portfolio" class="text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
                 <a href="#torneios" class="text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
-                <a href="#deck-builder" class="text-gray-300 hover:text-indigo-400 transition-colors">Monte seu Deck</a>
+                <button id="open-deck-builder-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Monte seu Deck</button>
                 <button id="open-champions-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Campeões Lendários</button>
                 <button id="open-shop-button-desktop" class="text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
                 <a href="#sobre" class="text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
@@ -162,7 +162,7 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-gray-900">
             <a href="#portfolio" class="block text-gray-300 hover:text-indigo-400 transition-colors">Equipes</a>
             <a href="#torneios" class="block text-gray-300 hover:text-indigo-400 transition-colors">Torneios</a>
-            <a href="#deck-builder" class="block text-gray-300 hover:text-indigo-400 transition-colors">Monte seu Deck</a>
+            <button id="open-deck-builder-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Monte seu Deck</button>
             <button id="open-champions-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Campeões Lendários</button>
             <button id="open-shop-button-mobile" class="block text-left w-full text-gray-300 hover:text-indigo-400 transition-colors">Loja</button>
             <a href="#sobre" class="block text-gray-300 hover:text-indigo-400 transition-colors">Sobre</a>
@@ -193,7 +193,7 @@
                                 </div>
                                 <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
                                 <div class="flex items-center justify-between text-gray-400 mb-4">
-                                    <span>👑 Líder Samuka </span>
+                                    <span>👑 Líder Lucas </span>
                                 
                                 </div>
                             </div>
@@ -205,14 +205,14 @@
                             <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/refs/heads/main/Imagem%20da%20Equipe/fornalha.jpg" alt="Logo do Clã Dragon's Crown 2" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-white mb-2">Clã Dragon´s Crown 2</h3>
-                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 9.500🏆</p>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 10.000🏆</p>
                                 <div class="flex items-center justify-between text-gray-400 mb-4">
                                     <span class="clan-tag">🏷️ Tag #RPQ8PPRQ</span>
                                     <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
                                 </div>
                                 <p class="text-gray-400 mb-4">💰 Premiação para Push e Guerra 💰</p>
                                 <div class="flex items-center justify-between text-gray-400 mb-4">
-                                    <span>👑 Líder Lucas </span>
+                                    <span>👑 Líder Samuka </span>
                                    
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                             <img src="https://raw.githubusercontent.com/brunnorj/dragonscrown/refs/heads/main/Imagem%20da%20Equipe/Bruxa.jpg" alt="Logo do Clã Dragon's Crown 3" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-white mb-2">Clã Dragon´s Crown 3</h3>
-                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 8.500🏆</p>
+                                <p class="text-gray-400 mb-4">🏆 Troféus Necessários - 9.500🏆</p>
                                 <div class="flex items-center justify-between text-gray-400 mb-4">
                                     <span class="clan-tag">🏷️ Tag #RRUQQOGQ</span>
                                     <button class="copy-btn bg-indigo-600 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-500 transition-colors">Copiar</button>
@@ -341,67 +341,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- NOVA SEÇÃO: DECK BUILDER -->
-        <section id="deck-builder" class="py-20 fade-in-section">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-4 title-fire">Monte seu Deck de Batalha</h2>
-                <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Selecione 8 cartas para montar seu deck. Acompanhe o custo médio de elixir e planeje sua melhor estratégia!</p>
-                
-                <!-- Deck Atual e Status -->
-                <div class="sticky top-20 bg-gray-900/80 backdrop-blur-sm z-40 p-4 rounded-lg mb-8">
-                    <h3 class="text-xl font-bold text-white mb-4 text-center">Seu Deck</h3>
-                    <div id="current-deck" class="grid grid-cols-4 md:grid-cols-8 gap-4 mb-4">
-                        <!-- Slots do deck serão preenchidos pelo JS -->
-                    </div>
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-6 text-center">
-                        <div class="text-lg">
-                            Custo Médio de Elixir: <span id="average-elixir" class="font-bold text-2xl text-indigo-400">0.0</span>
-                        </div>
-                        <button id="clear-deck-btn" class="bg-red-600 text-white font-bold py-2 px-6 rounded-full hover:bg-red-500 transition-transform transform hover:scale-105">
-                            Limpar Deck
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Filtros e Lista de Cartas -->
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-6 text-center">Escolha suas Cartas</h3>
-                    <!-- Filtros -->
-                    <div class="flex flex-wrap justify-center gap-4 mb-8">
-                        <select id="filter-elixir" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <option value="">Todo Elixir</option>
-                            <option value="1">1 Elixir</option>
-                            <option value="2">2 Elixir</option>
-                            <option value="3">3 Elixir</option>
-                            <option value="4">4 Elixir</option>
-                            <option value="5">5 Elixir</option>
-                            <option value="6">6 Elixir</option>
-                            <option value="7">7+ Elixir</option>
-                        </select>
-                         <select id="filter-type" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <option value="">Todo Tipo</option>
-                            <option value="Tropa">Tropa</option>
-                            <option value="Feitiço">Feitiço</option>
-                            <option value="Construção">Construção</option>
-                        </select>
-                        <select id="filter-rarity" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <option value="">Toda Raridade</option>
-                            <option value="Comum">Comum</option>
-                            <option value="Rara">Rara</option>
-                            <option value="Épica">Épica</option>
-                            <option value="Lendária">Lendária</option>
-                            <option value="Campeão">Campeão</option>
-                        </select>
-                    </div>
-
-                    <!-- Lista de Cartas -->
-                    <div id="card-selection-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4">
-                        <!-- Cartas serão inseridas aqui pelo JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
         
         <section id="sobre" class="py-20 bg-gray-900 fade-in-section">
             <div class="container mx-auto px-6 text-center max-w-3xl">
@@ -430,7 +369,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <!-- Botão WhatsApp -->
                     <a href="https://wa.me/5562996696562" target="_blank" class="bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-400 transition-transform transform hover:scale-105 inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.003 2.011.564 3.935 1.587 5.668l-1.025 3.722 3.726-1.023zm-4.505 1.382l-.333.188c.525.92 1.24 1.738 2.102 2.422l.182.325.341.61.603.344 1.724.975h.004c.002 0 .002 0 .002 0l.004-.002c-.004 0-.004 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.004 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.0-0.002z"></path></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.003 2.011.564 3.935 1.587 5.668l-1.025 3.722 3.726-1.023zm-4.505 1.382l-.333.188c.525.92 1.24 1.738 2.102 2.422l.182.325.341.61.603.344 1.724.975h.004c.002 0 .002 0 .002 0l.004-.002c-.004 0-.004 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.004 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002h.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.002-.002c.002 0 .002 0 .002 0l.004-.002c.002 0 .002 0 0 0l.0-0.002z"></path></svg>
                         <span>WhatsApp</span>
                     </a>
                     <!-- Botão Instagram -->
@@ -440,7 +379,7 @@
                     </a>
                     <!-- Botão Discord -->
                     <a href="https://discord.gg/H5s7zDfj" target="_blank" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-500 transition-transform transform hover:scale-105 inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4464.8245-.6667 1.2829a17.2969 17.2969 0 00-6.2843 0 17.2998 17.2998 0 00-.6667-1.2829.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.6826 4.3698a.0741.0741 0 00-.0371.0785v.0029c.0465.3333.111.6667.1942.9818a16.3155 16.3155 0 00-1.5796 4.2952.0741.0741 0 00.0187.0814c.3333.2494.648.5175.9442.8043a.0741.0741 0 00.0868-.0047c-.0558-.0651-.1087-.1332-.1587-.2013a12.1152 12.1152 0 01-.887-1.1623c.1843.0868.3715.1709.5587.2522a12.82 12.82 0 004.9032 1.9363.0741.0741 0 00.0868-.0465c.0371-.168.058-.336.0759-.504.288-.9285.54-1.9216.7461-2.9592a.0741.0741 0 00-.0187-.0814c-.23-.153-.4658-.306-.7045-.459a.0741.0741 0 00-.0868.0128c-.0814.1087-.1501.2232-.211.3392a11.314 11.314 0 00-2.2854 2.0734A12.9814 12.9814 0 0112 11.2319a12.9814 12.9814 0 01-2.0917.2611 11.314 11.314 0 00-2.2854-2.0734c-.0608-.116-.1295-.2305-.211-.3392a.0741.0741 0 00-.0868-.0128c-.2387.153-.4745.306-.7045.459a.0741.0741 0 00-.0187.0814c.2059 1.0376.4578 1.9936.7461 2.9592.0178.168.0388.336.0759.504a.0741.0741 0 00.0868.0465 12.82 12.82 0 004.9032-1.9363c.1872-.0814.3744-.1654.5587-.2522a12.1152 12.1152 0 01-.887 1.1623c-.05.0681-.1029.1362-.1587.2013a.0741.0741 0 00.0868.0047c.2962-.2868.6109-.5549.9442-.8043a.0741.0741 0 00.0187-.0814 16.3155 16.3155 0 00-1.5796-4.2952c.0832-.3151.1477-.6485.1942-.9818a.0741.0741 0 00-.0371-.0785z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4464.8245-.6667 1.2829a17.2969 17.2969 0 00-6.2843 0 17.2998 17.2998 0 00-.6667-1.2829.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.6826 4.3698a.0741.0741 0 00-.0371.0785v.0029c.0465.3333.111.6667.1942.9818a16.3155 16.3155 0 00-1.5796 4.2952.0741.0741 0 00.0187.0814c.3333.2494.648.5175.9442.8043a.0741.0741 0 00.0868-.0047c-.0558-.0651-.1087-.1332-.1587-.2013a12.1152 12.1152 0 01-.887-1.1623c.1843.0868.3715.1709.5587.2522a12.82 12.82 0 004.9032 1.9363.0741.0741 0 00.0868-.0465c.0371-.168.058-.336.0759-.504.288-.9285.54-1.9216.7461-2.9592a.0741.0741 0 00-.0187-.0814c-.23-.153-.4658-.306-.7045-.459a.0741.0741 0 00-.0868.0128c-.0814.1087-.1501.2232-.211.3392a11.314 11.314 0 00-2.2854 2.0734A12.9814 12.9814 0 0112 11.2319a12.9814 12.9814 0 01-2.0917.2611 11.314 11.314 0 00-2.2854-2.0734c-.0608-.116-.1295-.2305-.211-.3392a.0741.0741 0 00-.0868-.0128c-.2387.153-.4745.306-.7045.459a.0741.0741 0 00-.0187.0814c.2059 1.0376.4578 1.9936.7461 2.9592.0178.168.0388.336.0759-.504a.0741.0741 0 00.0868.0465 12.82 12.82 0 004.9032-1.9363c.1872-.0814.3744-.1654.5587-.2522a12.1152 12.1152 0 01-.887 1.1623c-.05.0681-.1029.1362-.1587-.2013a.0741.0741 0 00.0868.0047c.2962-.2868.6109-.5549.9442-.8043a.0741.0741 0 00.0187-.0814 16.3155 16.3155 0 00-1.5796-4.2952c.0832-.3151.1477-.6485.1942-.9818a.0741.0741 0 00-.0371-.0785z"/></svg>
                         <span>Discord</span>
                     </a>
                 </div>
@@ -603,6 +542,74 @@
         </div>
     </div>
 
+    <!-- Modal do Deck Builder -->
+    <div id="deck-builder-modal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg shadow-xl w-full max-w-7xl max-h-[90vh] flex flex-col p-6 relative">
+             <button id="close-deck-builder-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="flex-grow overflow-y-auto">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4 title-fire">Monte seu Deck de Batalha</h2>
+                <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">Selecione 8 cartas para montar seu deck. Acompanhe o custo médio de elixir e planeje sua melhor estratégia!</p>
+                
+                <div class="sticky top-0 bg-gray-900/80 backdrop-blur-sm z-40 p-4 rounded-lg mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Seu Deck</h3>
+                    <div id="current-deck" class="grid grid-cols-4 md:grid-cols-8 gap-4 mb-4">
+                        <!-- Slots do deck serão preenchidos pelo JS -->
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center">
+                        <div class="text-lg mb-4 md:mb-0">
+                            Custo Médio: <span id="average-elixir" class="font-bold text-2xl text-indigo-400">0.0</span>
+                        </div>
+                        <button id="clear-deck-btn" class="bg-red-600 text-white font-bold py-2 px-6 rounded-full hover:bg-red-500 transition-transform transform hover:scale-105 w-full md:w-auto">
+                            Limpar Deck
+                        </button>
+                        <button id="share-deck-btn" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-500 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-full md:w-auto" disabled>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.003 2.011.564 3.935 1.587 5.668l-1.025 3.722 3.726-1.023z"></path></svg>
+                            Compartilhar
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6 text-center">Escolha suas Cartas</h3>
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <select id="filter-elixir" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Todo Elixir</option>
+                            <option value="1">1 Elixir</option>
+                            <option value="2">2 Elixir</option>
+                            <option value="3">3 Elixir</option>
+                            <option value="4">4 Elixir</option>
+                            <option value="5">5 Elixir</option>
+                            <option value="6">6 Elixir</option>
+                            <option value="7">7+ Elixir</option>
+                        </select>
+                         <select id="filter-type" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Todo Tipo</option>
+                            <option value="Tropa">Tropa</option>
+                            <option value="Feitiço">Feitiço</option>
+                            <option value="Construção">Construção</option>
+                        </select>
+                        <select id="filter-rarity" class="bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Toda Raridade</option>
+                            <option value="Comum">Comum</option>
+                            <option value="Rara">Rara</option>
+                            <option value="Épica">Épica</option>
+                            <option value="Lendária">Lendária</option>
+                            <option value="Campeão">Campeão</option>
+                            <option value="Evolução">Evolução</option>
+                        </select>
+                    </div>
+
+                    <div id="card-selection-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4">
+                        <!-- Cartas serão inseridas aqui pelo JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Modal de Zoom da Imagem -->
     <div id="image-zoom-modal" class="modal fixed inset-0 bg-black bg-opacity-90 z-[110] hidden items-center justify-center p-4">
         <div class="relative">
@@ -656,42 +663,6 @@
             if (window.scriptHasRun) return;
             window.scriptHasRun = true;
 
-            // --- DADOS DOS JOGADORES (Substitua pelos dados do seu Excel) ---
-            const playerData = [
-                { name: 'Blue', tag: '#GGLRCVCYQ', team: 'Whick' },
-                { name: '07KRZIM', tag: '#V92QLLQ9Y', team: 'Whick' },
-                { name: 'Emerson❤️[BSB]', tag: '#VLYUL02YC', team: 'Moggados FC' },
-                { name: 'Vini✨MK BAIT', tag: '#2GCLQC22U', team: 'Moggados FC' },
-                { name: 'menowt', tag: '#UUUPCVRVP', team: 'Vistão' },
-                { name: 'robacena33', tag: '#VLU8PLJ8C', team: 'Vistão' },
-                { name: 'Lucas鉄CR™', tag: '#80QUG9VY2', team: 'Coroa dos Dragões' },
-                { name: '⚡ᴊᴘᴢɪɴ.ᴄʀ™', tag: '#2UVJ0VGJU', team: 'Coroa dos Dragões' },
-                { name: '♣Emanuel CLASH★', tag: '#QCPVGVUPC', team: 'Miguelitos' },
-                { name: 'filho d botelho', tag: '#2PL2CGP9Y', team: 'Miguelitos' },
-                { name: '『CRB』Limaoᵖʳᵒ', tag: '#80RJGVU89', team: 'Donkey e o Kong' },
-                { name: 'Deley', tag: '#V2GQ0ULYC', team: 'Donkey e o Kong' },
-                { name: 'NOT', tag: '#2QPLJ88VU', team: 'Caveiras' },
-                { name: 'Hanok™', tag: '#2GY9P8PGU', team: 'Caveiras' },
-                { name: 'vitin_7', tag: '#PQR678', team: 'Sincronia' },
-                { name: 'Ice wizard', tag: '#UQ2RVQC9C', team: 'Sincronia' },
-                { name: 'VERY NOBRE', tag: '#Q8GR90G0Y', team: 'Equipe cão' },
-                { name: 'EL NOBRE', tag: '#VQ9R0922C', team: 'Equipe cão' },
-                { name: 'iDesty✨️瑪麗亞', tag: '#RCLR9QC9', team: 'Fatality' },
-                { name: 'Regnar', tag: '#LJ0JC8RQ0', team: 'Fatality' },
-                { name: 'Samuka✨桑迪', tag: '#8U2UVG0VQ', team: 'Fênix Aliança' },
-                { name: 'Sandynhaa_', tag: '#UULC9GJQU', team: 'Fênix Aliança' },
-                { name: 'ᴅᴏғғʏㅤₒₚₚₛ', tag: '#UJLLGYGJ', team: 'Caçadores de sombras' },
-                { name: 'Índia', tag: '#889QCPC0', team: 'Caçadores de sombras' },
-                { name: 'The Demon', tag: '#2J8CVGPU', team: 'Dragon & Slayers' },
-                { name: 'LGR ⚜️ Mari ❤️', tag: '#QUQ08V29U', team: 'Dragon & Slayers' },
-                { name: 'Vitu.xit✨猥褻者', tag: '#C90QLC2GL', team: 'The Dragons' },
-                { name: '⭐BRUNNO™️⭐', tag: '#PVJRQYC8', team: 'The Dragons' },
-                { name: '⭐⭐⭐FARAÓ⭐⭐⭐', tag: '#982V9LCGY', team: 'RMR' },
-                { name: '☆Monique☆', tag: '#8QRV2U2J2', team: 'RMR' },
-                { name: 'Djunior', tag: '#Y2ULLYQV', team: 'DJ Suzy' },
-                { name: 'Lady Suzy', tag: '#V8VQ2QJ2G', team: 'DJ Suzy' },
-            ];
-
             // --- LÓGICA DO DECK BUILDER ---
             const allCardsData = [
                 // Comuns
@@ -708,7 +679,7 @@
                 { id: 'bats', name: 'Morcegos', elixir: 2, type: 'Tropa', rarity: 'Comum' },
                 { id: 'ice-spirit', name: 'Espírito de Gelo', elixir: 1, type: 'Tropa', rarity: 'Comum' },
                 { id: 'fire-spirit', name: 'Espírito de Fogo', elixir: 1, type: 'Tropa', rarity: 'Comum' },
-                { id: 'snowball', name: 'Bola de Neve Gigante', elixir: 2, type: 'Feitiço', rarity: 'Comum' },
+                { id: 'giant-snowball', name: 'Bola de Neve Gigante', elixir: 2, type: 'Feitiço', rarity: 'Comum' },
                 { id: 'royal-delivery', name: 'Entrega Real', elixir: 3, type: 'Feitiço', rarity: 'Comum' },
                 { id: 'tesla', name: 'Tesla', elixir: 4, type: 'Construção', rarity: 'Comum' },
                 { id: 'mortar', name: 'Morteiro', elixir: 4, type: 'Construção', rarity: 'Comum' },
@@ -719,6 +690,7 @@
                 { id: 'elite-barbarians', name: 'Bárbaros de Elite', elixir: 6, type: 'Tropa', rarity: 'Comum' },
                 { id: 'royal-recruits', name: 'Recrutas Reais', elixir: 7, type: 'Tropa', rarity: 'Comum' },
                 { id: 'goblin-gang', name: 'Gangue de Goblins', elixir: 3, type: 'Tropa', rarity: 'Comum' },
+                { id: 'firecracker', name: 'Lançadora', elixir: 3, type: 'Tropa', rarity: 'Comum' },
 
                 // Raras
                 { id: 'giant', name: 'Gigante', elixir: 5, type: 'Tropa', rarity: 'Rara' },
@@ -803,7 +775,45 @@
                 { id: 'golden-knight', name: 'Cavaleiro Dourado', elixir: 4, type: 'Tropa', rarity: 'Campeão' },
                 { id: 'mighty-miner', name: 'Mineiro Bombado', elixir: 4, type: 'Tropa', rarity: 'Campeão' },
                 { id: 'monk', name: 'Monge', elixir: 5, type: 'Tropa', rarity: 'Campeão' },
-                { id: 'little-prince', name: 'Principezinho', elixir: 3, type: 'Tropa', rarity: 'Campeão' }
+                { id: 'little-prince', name: 'Principezinho', elixir: 3, type: 'Tropa', rarity: 'Campeão' },
+
+                // Evoluções
+                { id: 'barbarians-ev1', name: 'Bárbaros (Evo)', elixir: 5, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'skeletons-ev1', name: 'Esqueletos (Evo)', elixir: 1, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'mortar-ev1', name: 'Morteiro (Evo)', elixir: 4, type: 'Construção', rarity: 'Evolução' },
+                { id: 'royal-giant-ev1', name: 'Gigante Real (Evo)', elixir: 6, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'firecracker-ev1', name: 'Lançadora (Evo)', elixir: 3, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'knight-ev1', name: 'Cavaleiro (Evo)', elixir: 3, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'bats-ev1', name: 'Morcegos (Evo)', elixir: 2, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'royal-recruits-ev1', name: 'Recrutas Reais (Evo)', elixir: 7, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'valkyrie-ev1', name: 'Valquíria (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'zap-ev1', name: 'Zap (Evo)', elixir: 2, type: 'Feitiço', rarity: 'Evolução' },
+                { id: 'wall-breakers-ev1', name: 'Quebra-Muros (Evo)', elixir: 2, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'battle-ram-ev1', name: 'Aríete de Batalha (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'archers-ev1', name: 'Arqueiras (Evo)', elixir: 3, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'ice-spirit-ev1', name: 'Espírito de Gelo (Evo)', elixir: 1, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'tesla-ev1', name: 'Tesla (Evo)', elixir: 4, type: 'Construção', rarity: 'Evolução' },
+                { id: 'wizard-ev1', name: 'Mago (Evo)', elixir: 5, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'bomber-ev1', name: 'Bombardeiro (Evo)', elixir: 2, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'goblin-barrel-ev1', name: 'Barril de Goblins (Evo)', elixir: 3, type: 'Feitiço', rarity: 'Evolução' },
+                { id: 'goblin-drill-ev1', name: 'Broca Goblin (Evo)', elixir: 4, type: 'Construção', rarity: 'Evolução' },
+                { id: 'goblin-cage-ev1', name: 'Gaiola de Goblin (Evo)', elixir: 4, type: 'Construção', rarity: 'Evolução' },
+                { id: 'musketeer-ev1', name: 'Mosqueteiro (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'cannon-ev1', name: 'Canhão (Evo)', elixir: 3, type: 'Construção', rarity: 'Evolução' },
+                { id: 'giant-snowball-ev1', name: 'Bola de Neve Gigante (Evo)', elixir: 2, type: 'Feitiço', rarity: 'Evolução' },
+                { id: 'dart-goblin-ev1', name: 'Goblin Dardo (Evo)', elixir: 3, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'hunter-ev1', name: 'Caçador (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'executioner-ev1', name: 'Executor (Evo)', elixir: 5, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'witch-ev1', name: 'Bruxa (Evo)', elixir: 5, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'inferno-dragon-ev1', name: 'Dragão Infernal (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'baby-dragon-ev1', name: 'Bebe Dragão (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'goblin-giant-ev1', name: 'Goblin Gigante (Evo)', elixir: 6, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'pekka-ev1', name: 'P.E.K.K.A (Evo)', elixir: 7, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'mega-knight-ev1', name: 'Mega Cavaleiro (Evo)', elixir: 7, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'electro-dragon-ev1', name: 'Dragão Elétrico (Evo)', elixir: 5, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'lumberjack-ev1', name: 'Lenhador (Evo)', elixir: 4, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'skeleton-barrel-ev1', name: 'Barril de Esqueletos (Evo)', elixir: 3, type: 'Tropa', rarity: 'Evolução' },
+                { id: 'furnace-ev1', name: 'Fornalha (Evo)', elixir: 4, type: 'Construção', rarity: 'Evolução' }
             ];
             
             let currentDeck = Array(8).fill(null);
@@ -811,6 +821,7 @@
             const currentDeckContainer = document.getElementById('current-deck');
             const averageElixirEl = document.getElementById('average-elixir');
             const clearDeckBtn = document.getElementById('clear-deck-btn');
+            const shareDeckBtn = document.getElementById('share-deck-btn');
             const filterElixir = document.getElementById('filter-elixir');
             const filterType = document.getElementById('filter-type');
             const filterRarity = document.getElementById('filter-rarity');
@@ -834,7 +845,7 @@
                     cardElement.className = `deck-builder-card cursor-pointer transition-all duration-300 ${isSelected ? 'selected' : ''}`;
                     cardElement.innerHTML = `
                         <div class="card-content">
-                            <img src="https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png" alt="${card.name}" class="w-full rounded-lg">
+                            <img src="https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png" alt="${card.name}" class="w-full rounded-lg" onerror="this.onerror=null; this.src='https://cdn.royaleapi.com/static/img/cards-150/evolution-shard.png';">
                         </div>
                     `;
                     cardElement.addEventListener('click', () => addCardToDeck(card));
@@ -853,7 +864,7 @@
                         totalElixir += card.elixir;
                         cardCount++;
                         slot.className = 'bg-gray-800 p-1 rounded-lg cursor-pointer';
-                        slot.innerHTML = `<img src="https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png" alt="${card.name}" class="w-full rounded-md">`;
+                        slot.innerHTML = `<img src="https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png" alt="${card.name}" class="w-full rounded-md" onerror="this.onerror=null; this.src='https://cdn.royaleapi.com/static/img/cards-150/evolution-shard.png';">`;
                         slot.addEventListener('click', () => removeCardFromDeck(index));
                     } else {
                         slot.className = 'deck-slot border-gray-700 rounded-lg flex items-center justify-center';
@@ -862,6 +873,13 @@
                 });
 
                 averageElixirEl.textContent = cardCount > 0 ? (totalElixir / cardCount).toFixed(1) : '0.0';
+                
+                if (cardCount === 8) {
+                    shareDeckBtn.disabled = false;
+                } else {
+                    shareDeckBtn.disabled = true;
+                }
+
                 renderAllCards();
             };
 
@@ -886,13 +904,64 @@
                 renderDeck();
             });
 
+            shareDeckBtn.addEventListener('click', () => {
+                if (currentDeck.some(card => card === null)) {
+                    return;
+                }
+
+                const cardNames = currentDeck.map(card => `- ${card.name}`).join('\n');
+                const averageElixir = averageElixirEl.textContent;
+
+                const message = `Olha o deck que eu montei!\n\n*Minhas Cartas:*\n${cardNames}\n\n*Custo Médio de Elixir:* ${averageElixir}\n\nMonte o seu também na página do Clã Dragon's Crown!`;
+                
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+                
+                window.open(whatsappUrl, '_blank');
+            });
+
             filterElixir.addEventListener('change', renderAllCards);
             filterType.addEventListener('change', renderAllCards);
             filterRarity.addEventListener('change', renderAllCards);
 
-            // Inicialização do Deck Builder
-            renderDeck();
+            // --- Fim da Lógica do Deck Builder ---
 
+
+            // --- DADOS DOS JOGADORES (Substitua pelos dados do seu Excel) ---
+            const playerData = [
+                { name: 'Blue', tag: '#GGLRCVCYQ', team: 'Whick' },
+                { name: '07KRZIM', tag: '#V92QLLQ9Y', team: 'Whick' },
+                { name: 'Emerson❤️[BSB]', tag: '#VLYUL02YC', team: 'Moggados FC' },
+                { name: 'Vini✨MK BAIT', tag: '#2GCLQC22U', team: 'Moggados FC' },
+                { name: 'menowt', tag: '#UUUPCVRVP', team: 'Vistão' },
+                { name: 'robacena33', tag: '#VLU8PLJ8C', team: 'Vistão' },
+                { name: 'Lucas鉄CR™', tag: '#80QUG9VY2', team: 'Coroa dos Dragões' },
+                { name: '⚡ᴊᴘᴢɪɴ.ᴄʀ™', tag: '#2UVJ0VGJU', team: 'Coroa dos Dragões' },
+                { name: '♣Emanuel CLASH★', tag: '#QCPVGVUPC', team: 'Miguelitos' },
+                { name: 'filho d botelho', tag: '#2PL2CGP9Y', team: 'Miguelitos' },
+                { name: '『CRB』Limaoᵖʳᵒ', tag: '#80RJGVU89', team: 'Donkey e o Kong' },
+                { name: 'Deley', tag: '#V2GQ0ULYC', team: 'Donkey e o Kong' },
+                { name: 'NOT', tag: '#2QPLJ88VU', team: 'Caveiras' },
+                { name: 'Hanok™', tag: '#2GY9P8PGU', team: 'Caveiras' },
+                { name: 'vitin_7', tag: '#PQR678', team: 'Sincronia' },
+                { name: 'Ice wizard', tag: '#UQ2RVQC9C', team: 'Sincronia' },
+                { name: 'VERY NOBRE', tag: '#Q8GR90G0Y', team: 'Equipe cão' },
+                { name: 'EL NOBRE', tag: '#VQ9R0922C', team: 'Equipe cão' },
+                { name: 'iDesty✨️瑪麗亞', tag: '#RCLR9QC9', team: 'Fatality' },
+                { name: 'Regnar', tag: '#LJ0JC8RQ0', team: 'Fatality' },
+                { name: 'Samuka✨桑迪', tag: '#8U2UVG0VQ', team: 'Fênix Aliança' },
+                { name: 'Sandynhaa_', tag: '#UULC9GJQU', team: 'Fênix Aliança' },
+                { name: 'ᴅᴏғғʏㅤₒₚₚₛ', tag: '#UJLLGYGJ', team: 'Caçadores de sombras' },
+                { name: 'Índia', tag: '#889QCPC0', team: 'Caçadores de sombras' },
+                { name: 'The Demon', tag: '#2J8CVGPU', team: 'Dragon & Slayers' },
+                { name: 'LGR ⚜️ Mari ❤️', tag: '#QUQ08V29U', team: 'Dragon & Slayers' },
+                { name: 'Vitu.xit✨猥褻者', tag: '#C90QLC2GL', team: 'The Dragons' },
+                { name: '⭐BRUNNO™️⭐', tag: '#PVJRQYC8', team: 'The Dragons' },
+                { name: '⭐⭐⭐FARAÓ⭐⭐⭐', tag: '#982V9LCGY', team: 'RMR' },
+                { name: '☆Monique☆', tag: '#8QRV2U2J2', team: 'RMR' },
+                { name: 'Djunior', tag: '#Y2ULLYQV', team: 'DJ Suzy' },
+                { name: 'Lady Suzy', tag: '#V8VQ2QJ2G', team: 'DJ Suzy' },
+            ];
             
             // --- Script do Modal da Loja ---
             const shopModal = document.getElementById('shop-modal');
@@ -921,6 +990,20 @@
             openChampionsButtonSection.addEventListener('click', openChampionsModal);
             closeChampionsModalButton.addEventListener('click', closeChampionsModal);
             championsModal.addEventListener('click', (e) => { if (e.target === championsModal) closeChampionsModal(); });
+            
+            // --- Script do Modal do Deck Builder ---
+            const deckBuilderModal = document.getElementById('deck-builder-modal');
+            const openDeckBuilderButtonDesktop = document.getElementById('open-deck-builder-button-desktop');
+            const openDeckBuilderButtonMobile = document.getElementById('open-deck-builder-button-mobile');
+            const closeDeckBuilderModalButton = document.getElementById('close-deck-builder-modal-button');
+
+            function openDeckBuilderModal() { deckBuilderModal.classList.remove('hidden'); deckBuilderModal.classList.add('flex'); renderDeck(); }
+            function closeDeckBuilderModal() { deckBuilderModal.classList.add('hidden'); deckBuilderModal.classList.remove('flex'); }
+            openDeckBuilderButtonDesktop.addEventListener('click', openDeckBuilderModal);
+            openDeckBuilderButtonMobile.addEventListener('click', openDeckBuilderModal);
+            closeDeckBuilderModalButton.addEventListener('click', closeDeckBuilderModal);
+            deckBuilderModal.addEventListener('click', (e) => { if (e.target === deckBuilderModal) closeDeckBuilderModal(); });
+
 
             // --- Script do Modal de Zoom da Imagem ---
             const imageZoomModal = document.getElementById('image-zoom-modal');
@@ -995,6 +1078,7 @@
                 if (event.key === 'Escape') {
                     if (!shopModal.classList.contains('hidden')) closeShopModal();
                     if (!championsModal.classList.contains('hidden')) closeChampionsModal();
+                    if (!deckBuilderModal.classList.contains('hidden')) closeDeckBuilderModal();
                     if (!imageZoomModal.classList.contains('hidden')) closeZoomModal();
                     if (!bracketModal.classList.contains('hidden')) closeBracketModal();
                     if (!playerListModal.classList.contains('hidden')) closePlayerListModal();
@@ -1054,5 +1138,4 @@
 
 </body>
 </html>
-
 
