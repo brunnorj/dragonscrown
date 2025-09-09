@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clã Dragon's Crown</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fontes: Inter para o corpo e Cinzel Decorative para os títulos -->
@@ -170,7 +171,7 @@
         </div>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-20 bg-black">
         <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-down title-fire" style="animation-delay: 0.2s;">Bem-vindo à família Dragon's Crown, onde a força se une à honra!</h1>
             <p class="text-lg md:text-xl text-indigo-300 mb-8 fade-in-down" style="animation-delay: 0.4s;">Clash Royale | Guerra de Clã | Premiações | Troféus</p>
@@ -656,6 +657,16 @@
             </div>
         </div>
     </div>
+    
+    <!-- Container for Deck Image Generation (Hidden) -->
+    <div id="deck-image-container" class="fixed top-0 left-[-9999px] p-4 bg-gray-800 border-4 border-indigo-500 rounded-lg" style="width: 320px;">
+        <h3 class="text-xl font-bold text-center mb-2 title-fire" style="font-size: 1.5rem;">Meu Deck</h3>
+        <div id="deck-image-grid" class="grid grid-cols-4 gap-2 mb-3"></div>
+        <div class="text-center text-white text-base">
+            <p>Custo Médio: <span id="deck-image-elixir" class="font-bold text-indigo-300">0.0</span></p>
+            <p class="text-xs mt-3 text-gray-400">Monte o seu em nosso site!</p>
+        </div>
+    </div>
 
 
     <script>
@@ -824,6 +835,7 @@
             const averageElixirEl = document.getElementById('average-elixir');
             const clearDeckBtn = document.getElementById('clear-deck-btn');
             const shareDeckBtn = document.getElementById('share-deck-btn');
+            const originalShareBtnHTML = shareDeckBtn.innerHTML;
             const filterElixir = document.getElementById('filter-elixir');
             const filterType = document.getElementById('filter-type');
             const filterRarity = document.getElementById('filter-rarity');
@@ -906,20 +918,71 @@
                 renderDeck();
             });
 
-            shareDeckBtn.addEventListener('click', () => {
-                if (currentDeck.some(card => card === null)) {
-                    return;
-                }
-
+            // Helper function for text-based sharing (fallback)
+            const shareAsText = () => {
                 const cardNames = currentDeck.map(card => `- ${card.name}`).join('\n');
                 const averageElixir = averageElixirEl.textContent;
-
                 const message = `Olha o deck que eu montei!\n\n*Minhas Cartas:*\n${cardNames}\n\n*Custo Médio de Elixir:* ${averageElixir}\n\nMonte o seu também na página do Clã Dragon's Crown! https://brunnorj.github.io/dragonscrown`;
-                
                 const encodedMessage = encodeURIComponent(message);
                 const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
-                
                 window.open(whatsappUrl, '_blank');
+            };
+
+            shareDeckBtn.addEventListener('click', async () => {
+                if (currentDeck.some(card => card === null)) return;
+
+                if (navigator.share) {
+                    const imageContainer = document.getElementById('deck-image-container');
+                    const imageGrid = document.getElementById('deck-image-grid');
+                    const imageElixir = document.getElementById('deck-image-elixir');
+
+                    imageGrid.innerHTML = '';
+                    currentDeck.forEach(card => {
+                        if (card) {
+                            const img = new Image();
+                            img.crossOrigin = "anonymous";
+                            img.src = `https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png`;
+                            img.className = 'w-full rounded';
+                            imageGrid.appendChild(img);
+                        }
+                    });
+                    imageElixir.textContent = averageElixirEl.textContent;
+
+                    shareDeckBtn.innerHTML = 'Gerando imagem...';
+                    shareDeckBtn.disabled = true;
+
+                    setTimeout(async () => {
+                        try {
+                            const canvas = await html2canvas(imageContainer, { useCORS: true, backgroundColor: '#2d3748' });
+                            canvas.toBlob(async (blob) => {
+                                if (!blob) {
+                                    shareAsText();
+                                    shareDeckBtn.innerHTML = originalShareBtnHTML;
+                                    shareDeckBtn.disabled = false;
+                                    return;
+                                }
+                                const file = new File([blob], "deck.png", { type: "image/png" });
+                                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                                    await navigator.share({
+                                        files: [file],
+                                        title: 'Meu Deck - Clã Dragon\'s Crown',
+                                        text: 'Olha o deck que eu montei no site do Clã Dragon\'s Crown!\n\nMonte o seu também!',
+                                    });
+                                } else {
+                                    shareAsText();
+                                }
+                            }, 'image/png');
+                        } catch (error) {
+                            console.error('Erro ao gerar a imagem:', error);
+                            shareAsText();
+                        } finally {
+                            shareDeckBtn.innerHTML = originalShareBtnHTML;
+                            shareDeckBtn.disabled = (currentDeck.filter(c => c).length !== 8);
+                        }
+                    }, 500);
+                } else {
+                    shareAsText();
+                }
             });
 
             filterElixir.addEventListener('change', renderAllCards);
@@ -1140,5 +1203,3 @@
 
 </body>
 </html>
-<main>
-
