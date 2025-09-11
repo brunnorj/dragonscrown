@@ -868,8 +868,9 @@
             shareDeckBtn.addEventListener('click', async () => {
                 if (currentDeck.some(card => card === null)) return;
 
-                // Texto que vai FORA da imagem
-                const shareText = `Monte o seu em nosso site! https://brunnorj.github.io/dragonscrown`;
+                const cardNames = currentDeck.map(card => `- ${card.name}`).join('\n');
+                const averageElixir = averageElixirEl.textContent;
+                const shareText = `Olha o deck que eu montei!\n\n${cardNames}\n\nCusto Médio de Elixir: ${averageElixir}\n\nMonte o seu em nosso site! https://brunnorj.github.io/dragonscrown`;
 
                 const shareAsText = () => {
                     const encodedMessage = encodeURIComponent(shareText);
@@ -877,7 +878,8 @@
                     window.open(whatsappUrl, '_blank');
                 };
 
-                if (!navigator.share) {
+                // Verifica se a API de compartilhamento e o compartilhamento de arquivos são suportados
+                if (!navigator.share || !navigator.canShare({ files: [new File([], 'test.png', {type: 'image/png'})] })) {
                     shareAsText();
                     return;
                 }
@@ -886,7 +888,6 @@
                 const imageGrid = document.getElementById('deck-image-grid');
                 const imageElixir = document.getElementById('deck-image-elixir');
 
-                // Atualiza o elixir na imagem antes de gerar
                 imageElixir.textContent = averageElixirEl.textContent;
                 imageGrid.innerHTML = '';
                 
@@ -900,7 +901,7 @@
                         img.crossOrigin = "anonymous";
                         img.className = 'w-full rounded';
                         img.onload = resolve;
-                        img.onerror = resolve; // Resolve mesmo em caso de erro para não quebrar o processo
+                        img.onerror = resolve; 
                         img.src = card.custom_image_url ? card.custom_image_url : `https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png`;
                         imageGrid.appendChild(img);
                     });
