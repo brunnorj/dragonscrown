@@ -16,7 +16,7 @@
             background-color: #000000;
         }
 
-        /* FONTE E EFEITO 3D PARA TÍTULOS */
+        /* FONTE E EFEITO 3D PARA TÍTulos */
         .title-fire {
             font-family: 'Cinzel Decorative', cursive;
             color: #ffebcd; /* Cor principal do texto - um dourado pálido */
@@ -583,16 +583,9 @@
         </div>
     </div>
     
-    <div id="deck-image-container" class="fixed top-0 left-[-9999px] p-4 bg-gray-800 border-4 border-indigo-500 rounded-lg" style="width: 320px;">
-        <h3 class="text-xl font-bold text-center mb-2 title-fire" style="font-size: 1.5rem;">Meu Deck</h3>
-        <div id="deck-image-grid" class="grid grid-cols-4 gap-2 mb-3"></div>
-        <div class="text-center text-white text-base">
-            <p>Custo Médio: <span id="deck-image-elixir" class="font-bold text-indigo-300">0.0</span></p>
-            <p class="text-xs mt-3 text-gray-400">Monte o seu em nosso site!</p>
-            <p class="text-xs mt-3 text-gray-400">https://brunnorj.github.io/dragonscrown</p>
-        </div>
+    <div id="deck-image-container" class="fixed top-0 left-[-9999px] p-2 bg-gray-800" style="width: 320px;">
+        <div id="deck-image-grid" class="grid grid-cols-4 gap-2"></div>
     </div>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -778,7 +771,6 @@
             const averageElixirEl = document.getElementById('average-elixir');
             const clearDeckBtn = document.getElementById('clear-deck-btn');
             const shareDeckBtn = document.getElementById('share-deck-btn');
-            const originalShareBtnHTML = shareDeckBtn.innerHTML;
             const filterElixir = document.getElementById('filter-elixir');
             const filterType = document.getElementById('filter-type');
             const filterRarity = document.getElementById('filter-rarity');
@@ -867,18 +859,17 @@
                 renderDeck();
             });
             
-            const shareAsText = () => {
-                const cardNames = currentDeck.map(card => `- ${card.name}`).join('\n');
-                const averageElixir = averageElixirEl.textContent;
-                const message = `Olha o deck que eu montei!\n\n*Minhas Cartas:*\n${cardNames}\n\n*Custo Médio de Elixir:* ${averageElixir}\n\nMonte o seu também na página do Clã Dragon's Crown! https://brunnorj.github.io/dragonscrown`;
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
-                window.open(whatsappUrl, '_blank');
-            };
-
             shareDeckBtn.addEventListener('click', async () => {
                 if (currentDeck.some(card => card === null)) return;
-                
+
+                const shareText = `Olha o deck que eu montei! Monte o seu também em nosso site!\nhttps://brunnorj.github.io/dragonscrown`;
+
+                const shareAsText = () => {
+                    const encodedMessage = encodeURIComponent(shareText);
+                    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+                    window.open(whatsappUrl, '_blank');
+                };
+
                 if (!navigator.share) {
                     shareAsText();
                     return;
@@ -886,30 +877,22 @@
 
                 const imageContainer = document.getElementById('deck-image-container');
                 const imageGrid = document.getElementById('deck-image-grid');
-                const imageElixir = document.getElementById('deck-image-elixir');
-
                 imageGrid.innerHTML = '';
-                imageElixir.textContent = averageElixirEl.textContent;
                 
-                shareDeckBtn.innerHTML = 'Gerando imagem...';
+                const originalShareBtnHTML = shareDeckBtn.innerHTML;
+                shareDeckBtn.innerHTML = 'Gerando...';
                 shareDeckBtn.disabled = true;
-                
-                const imageLoadPromises = [];
-                currentDeck.forEach(card => {
-                    if (card) {
+
+                const imageLoadPromises = currentDeck.map(card => {
+                    return new Promise((resolve) => {
                         const img = new Image();
                         img.crossOrigin = "anonymous";
                         img.className = 'w-full rounded';
-                        imageGrid.appendChild(img);
-                        
-                        const promise = new Promise((resolve, reject) => {
-                            img.onload = resolve;
-                            img.onerror = reject;
-                        });
-                        
+                        img.onload = resolve;
+                        img.onerror = resolve; // Resolve even on error to not break the process
                         img.src = card.custom_image_url ? card.custom_image_url : `https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png`;
-                        imageLoadPromises.push(promise);
-                    }
+                        imageGrid.appendChild(img);
+                    });
                 });
 
                 try {
@@ -924,22 +907,26 @@
                         }
 
                         const file = new File([blob], "deck-dragonscrown.png", { type: "image/png" });
-                        
                         const shareData = {
                             files: [file],
                             title: 'Meu Deck - Clã Dragon\'s Crown',
-                            text: `Olha o deck que eu montei no site do Clã Dragon's Crown!\n\nMonte o seu também:\nhttps://brunnorj.github.io/dragonscrown`,
+                            text: shareText,
                         };
-                        
-                        if (navigator.canShare && navigator.canShare(shareData)) {
-                            await navigator.share(shareData);
-                        } else {
+
+                        try {
+                            if (navigator.canShare && navigator.canShare(shareData)) {
+                                await navigator.share(shareData);
+                            } else {
+                                await navigator.share({ title: shareData.title, text: shareData.text });
+                            }
+                        } catch (error) {
+                            console.error("Erro no navigator.share:", error);
                             shareAsText();
                         }
                     }, 'image/png');
 
                 } catch (error) {
-                    console.error('Erro ao gerar ou compartilhar a imagem:', error);
+                    console.error('Erro ao gerar imagem:', error);
                     shareAsText();
                 } finally {
                     shareDeckBtn.innerHTML = originalShareBtnHTML;
@@ -1082,9 +1069,6 @@
             function closePlayerListModal() { 
                 playerListModal.classList.add('hidden'); 
                 playerListModal.classList.remove('flex'); 
-                if (window.location.hash === '#jogadores') {
-                    history.pushState("", document.title, window.location.pathname + window.location.search);
-                }
             }
             closePlayerListModalButton.addEventListener('click', closePlayerListModal);
             playerListModal.addEventListener('click', (e) => { if (e.target === playerListModal) closePlayerListModal(); });
@@ -1164,3 +1148,4 @@
 
 </body>
 </html>
+
