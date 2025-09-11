@@ -583,9 +583,15 @@
         </div>
     </div>
     
-    <div id="deck-image-container" class="fixed top-0 left-[-9999px] p-2 bg-gray-800" style="width: 320px;">
-        <div id="deck-image-grid" class="grid grid-cols-4 gap-2"></div>
+    <!-- Container para gerar a imagem do deck -->
+    <div id="deck-image-container" class="fixed top-0 left-[-9999px] p-4 bg-gray-800 border-2 border-indigo-500 rounded-lg" style="width: 320px;">
+        <h3 class="text-xl font-bold text-center mb-2 title-fire" style="font-size: 1.5rem;">Meu Deck</h3>
+        <div id="deck-image-grid" class="grid grid-cols-4 gap-2 mb-3"></div>
+        <div class="text-center text-white text-base">
+            <p>Custo Médio: <span id="deck-image-elixir" class="font-bold text-indigo-300">0.0</span></p>
+        </div>
     </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -862,7 +868,8 @@
             shareDeckBtn.addEventListener('click', async () => {
                 if (currentDeck.some(card => card === null)) return;
 
-                const shareText = `Olha o deck que eu montei! Monte o seu também em nosso site!\nhttps://brunnorj.github.io/dragonscrown`;
+                // Texto que vai FORA da imagem
+                const shareText = `Monte o seu em nosso site! https://brunnorj.github.io/dragonscrown`;
 
                 const shareAsText = () => {
                     const encodedMessage = encodeURIComponent(shareText);
@@ -877,6 +884,10 @@
 
                 const imageContainer = document.getElementById('deck-image-container');
                 const imageGrid = document.getElementById('deck-image-grid');
+                const imageElixir = document.getElementById('deck-image-elixir');
+
+                // Atualiza o elixir na imagem antes de gerar
+                imageElixir.textContent = averageElixirEl.textContent;
                 imageGrid.innerHTML = '';
                 
                 const originalShareBtnHTML = shareDeckBtn.innerHTML;
@@ -889,7 +900,7 @@
                         img.crossOrigin = "anonymous";
                         img.className = 'w-full rounded';
                         img.onload = resolve;
-                        img.onerror = resolve; // Resolve even on error to not break the process
+                        img.onerror = resolve; // Resolve mesmo em caso de erro para não quebrar o processo
                         img.src = card.custom_image_url ? card.custom_image_url : `https://cdn.royaleapi.com/static/img/cards-150/${card.id}.png`;
                         imageGrid.appendChild(img);
                     });
